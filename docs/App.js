@@ -52,10 +52,6 @@ class App extends Component {
                 <NavItem>
                   <NavLink onClick={this.handleNavbarClick} to="/advanced">Advanced</NavLink>
                 </NavItem>
-                {/* PRO */}
-                <NavItem>
-                  <NavLink onClick={this.handleNavbarClick} to="/sections">Sections</NavLink>
-                </NavItem>
               </NavbarNav>
             </Collapse>
           </Navbar>

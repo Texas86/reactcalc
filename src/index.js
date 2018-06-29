@@ -65,40 +65,6 @@ import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
 
-// PRO
-import Autocomplete from './components/pro/Autocomplete';
-import Avatar from './components/pro/Avatar';
-import ButtonFixed from './components/pro/ButtonFixed';
-import ButtonFixedItem from './components/pro/ButtonFixedItem';
-import CardUp from './components/pro/CardUp';
-import CollapseHeader from './components/pro/CollapseHeader';
-import FlippingCard from './components/pro/FlippingCard';
-import InputFile from './components/pro/InputFile';
-import InputRange from './components/pro/InputRange';
-import InputSwitch from './components/pro/InputSwitch';
-import LightboxStyles from './components/pro/Lightbox.css';
-import PerfectScrollbar from './components/pro/PerfectScrollbar';
-import ScrollSpyBox from './components/pro/ScrollSpyBox';
-import ScrollSpyList from './components/pro/ScrollSpyList';
-import ScrollSpyListItem from './components/pro/ScrollSpyListItem';
-import ScrollSpyText from './components/pro/ScrollSpyText';
-import SideNav from './components/pro/SideNav';
-import SideNavCat from './components/pro/SideNavCat';
-import SideNavItem from './components/pro/SideNavItem';
-import SideNavLink from './components/pro/SideNavLink';
-import SideNavNav from './components/pro/SideNavNav';
-import Select from './components/pro/Select';
-import SelectInput from './components/pro/SelectInput';
-import SelectOptions from './components/pro/SelectOptions';
-import SelectOption from './components/pro/SelectOption';
-import Spinner from './components/pro/Spinner';
-import TabPane from './components/pro/TabPane';
-import TabContent from './components/pro/TabContent';
-import Sticky from './components/pro/Sticky';
-import StickyContainer from './components/pro/StickyContainer';
-import Testimonial from './components/pro/Testimonial';
-import TestimonialControl from './components/pro/TestimonialControl';
-
 export {
   // FREE
   Badge,
@@ -165,38 +131,5 @@ export {
   Table,
   TextField,
   Tooltip,
-  View,
-  // PRO
-  Autocomplete,
-  Avatar,
-  ButtonFixed,
-  ButtonFixedItem,
-  CardUp,
-  CollapseHeader,
-  FlippingCard,
-  InputFile,
-  InputRange,
-  InputSwitch,
-  LightboxStyles,
-  PerfectScrollbar,
-  ScrollSpyBox,
-  ScrollSpyList,
-  ScrollSpyListItem,
-  ScrollSpyText,
-  SideNav,
-  SideNavCat,
-  SideNavItem,
-  SideNavLink,
-  SideNavNav,
-  Select,
-  SelectInput,
-  SelectOptions,
-  SelectOption,
-  Spinner,
-  TabPane,
-  TabContent,
-  Sticky,
-  StickyContainer,
-  Testimonial,
-  TestimonialControl,
+  View
 };

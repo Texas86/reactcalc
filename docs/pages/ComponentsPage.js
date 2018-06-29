@@ -64,37 +64,6 @@ class ComponentsPage extends React.Component {
                 <li>
                   <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
                 </li>
-                <h6 className="mt-3 grey-text">PRO </h6>
-                <li>
-                  <NavLink to="/components/pro/autocomplete">Autocomplete <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/cards">Cards <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/forms">Forms <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/footer">Footer <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/search">Search <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/tabs">Tabs <Fa icon="angle-right" /></NavLink>
-                </li>
               </ul>
             </Jumbotron>
           </Col>

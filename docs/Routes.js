@@ -34,46 +34,6 @@ import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
 
-// PRO
-import AutocompletePage from './pages/pro/AutocompletePage';
-import ButtonPagePro from './pages/pro/ButtonPage';
-import ChartsPagePro from './pages/pro/ChartsPage';
-import InputPagePro from './pages/pro/InputPage';
-import CollapsePagePro from './pages/pro/CollapsePage';
-import ScrollBarPage from './pages/pro/ScrollBarPage';
-import ScrollSpyPage from './pages/pro/ScrollSpyPage';
-import SelectPage from './pages/pro/SelectPage';
-import SideNavPage from './pages/pro/SideNavPage';
-import DatePickerPage from './pages/pro/DatePickerPage';
-import DoubleNavigationPage from './pages/pro/DoubleNavigationPage';
-import TimePickerPage from './pages/pro/TimePickerPage';
-import StickyPage from './pages/pro/StickyPage';
-import LightboxPage from './pages/pro/LightboxPage';
-import MultiCarouselPage from './pages/pro/MultiCarouselPage';
-import ProgressPagePro from './pages/pro/ProgressPage';
-import TabsPage from './pages/pro/TabsPage';
-import ThumbnailsCarousel from './pages/pro/ThumbnailsCarousel';
-import SectionsPage from './pages/pro/sections/SectionsPage';
-import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
-import TestimonialsMultiPage from './pages/pro/sections/TestimonialsMultiPage';
-import EcommercePage from './pages/pro/sections/EcommercePage';
-import AppPage from './pages/pro/sections/AppPage';
-import ContactFormPage from './pages/pro/sections/ContactFormPage';
-import ClassicFormPage from './pages/pro/sections/ClassicFormPage';
-import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage';
-import ProjectsPage from './pages/pro/sections/ProjectsPage';
-import FeaturesPage from './pages/pro/sections/FeaturesPage';
-import ContactPage from './pages/pro/sections/ContactPage';
-import SocialButtonsPage from './pages/pro/SocialButtonsPage';
-import BlogPage from './pages/pro/sections/BlogPage';
-import TeamPage from'./pages/pro/sections/TeamPage';
-import MagazinePage from'./pages/pro/sections/MagazinePage';
-import SocialPage from'./pages/pro/sections/SocialPage';
-import FormsPagePro from './pages/pro/FormsPage';
-import CardsPagePro from'./pages/pro/CardsPage';
-import SearchPagePro from './pages/pro/SearchPage';
-import FooterPagePro from './pages/pro/FooterPage';
-
 class Routes extends React.Component {
   render() {
     return (
@@ -111,46 +71,6 @@ class Routes extends React.Component {
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
-        {/* PRO */}
-        <Route path='/components/pro/autocomplete' component={AutocompletePage} />
-        <Route path='/advanced/pro/charts' component={ChartsPagePro} />
-        <Route path='/components/pro/buttons' component={ButtonPagePro} />
-        <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
-        <Route path='/components/pro/input' component={InputPagePro} />
-        <Route path='/advanced/pro/sidenav' component={SideNavPage} />
-        <Route path='/advanced/pro/select' component={SelectPage} />
-        <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
-        <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
-        <Route path='/advanced/pro/lightbox' component={LightboxPage} />
-        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
-        <Route path='/components/pro/progress' component={ProgressPagePro} />
-        <Route path='/advanced/pro/scrollbar' component={ScrollBarPage} />
-        <Route path='/advanced/pro/scrollspy' component={ScrollSpyPage} />
-        <Route path='/advanced/pro/sticky' component={StickyPage} />
-        <Route path='/components/pro/tabs' component={TabsPage} />
-        <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
-        <Route path='/css/pro/double' component={DoubleNavigationPage} />
-        <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
-        <Route path='/components/pro/forms' component={FormsPagePro} />
-        <Route path='/components/pro/cards' component={CardsPagePro} />
-        <Route path='/components/pro/search' component={SearchPagePro} />
-        <Route path='/components/pro/footer' component={FooterPagePro} />
-        {/* PRO SECTIONS */}
-        <Route path='/sections' component={SectionsPage} />
-        <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
-        <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
-        <Route path='/pro/sections/ecommerce' component={EcommercePage} />
-        <Route path='/pro/sections/app' component={AppPage} />
-        <Route path='/pro/sections/contactform' component={ContactFormPage} />
-        <Route path='/pro/sections/classicform' component={ClassicFormPage} />
-        <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
-        <Route path='/pro/sections/projects' component={ProjectsPage} />
-        <Route path='/pro/sections/features' component={FeaturesPage} />
-        <Route path='/pro/sections/contact' component={ContactPage} />
-        <Route path='/pro/sections/blog' component={BlogPage} />
-        <Route path='/pro/sections/team' component={TeamPage} />
-        <Route path='/pro/sections/magazine' component={MagazinePage} />
-        <Route path='/pro/sections/social' component={SocialPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

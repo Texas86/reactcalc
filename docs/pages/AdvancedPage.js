@@ -27,43 +27,6 @@ class AdvancedPage extends React.Component {
                 <li>
                   <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
-                <h6 className="mt-3 grey-text">PRO </h6>
-                <li>
-                  <NavLink to="/advanced/pro/charts">Charts <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/collapse">Accordion <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/lightbox">Lightbox <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/select">Material Select <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/multicarousel">Multi-item Carousel <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/thumbnailscarousel">Thumbnails Carousel <Fa icon="angle-right" /></NavLink>
-                </li>
               </ul>
             </Jumbotron>
           </Col>
