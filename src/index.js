@@ -71,45 +71,6 @@ import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
 import { toast, ToastContainer, cssTransition} from 'react-toastify';
-// PRO
-import Autocomplete from './components/pro/Autocomplete';
-import Avatar from './components/pro/Avatar';
-import ButtonFixed from './components/pro/ButtonFixed';
-import ButtonFixedItem from './components/pro/ButtonFixedItem';
-import CardUp from './components/pro/CardUp';
-import Chip from './components/pro/Chip';
-import ChipsInput from './components/pro/ChipsInput';
-import CollapseHeader from './components/pro/CollapseHeader';
-import ExportToCSV from './components/pro/ExportToCSV';
-DropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
-import FlippingCard from './components/pro/FlippingCard';
-import InputFile from './components/pro/InputFile';
-import InputRange from './components/pro/InputRange';
-import InputSwitch from './components/pro/InputSwitch';
-import LightboxStyles from './components/pro/Lightbox.css';
-import PerfectScrollbar from './components/pro/PerfectScrollbar';
-import ScrollSpyBox from './components/pro/ScrollSpyBox';
-import ScrollSpyList from './components/pro/ScrollSpyList';
-import ScrollSpyListItem from './components/pro/ScrollSpyListItem';
-import ScrollSpyText from './components/pro/ScrollSpyText';
-import SideNav from './components/pro/SideNav';
-import SideNavCat from './components/pro/SideNavCat';
-import SideNavItem from './components/pro/SideNavItem';
-import SideNavLink from './components/pro/SideNavLink';
-import SideNavNav from './components/pro/SideNavNav';
-import Select from './components/pro/Select';
-import SelectInput from './components/pro/SelectInput';
-import SelectOptions from './components/pro/SelectOptions';
-import SelectOption from './components/pro/SelectOption';
-import Spinner from './components/pro/Spinner';
-import Step from './components/pro/Step';
-import Stepper from './components/pro/Stepper';
-import TableEditable from './components/pro/TableEditable';
-import TabPane from './components/pro/TabPane';
-import TabContent from './components/pro/TabContent';
-import Sticky from './components/pro/Sticky';
-import StickyContainer from './components/pro/StickyContainer';
-import Testimonial from './components/pro/Testimonial';
 
 // MDB FREE
 import MDBBadge from './components/Badge';
@@ -182,49 +143,6 @@ import MDBTableFoot from './components/TableFoot';
 import MDBTextarea from './components/TextField';
 import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
-
-// MDB PRO
-import MDBAnimation from './components/Animation';
-import MDBAutocomplete from './components/pro/Autocomplete';
-import MDBAvatar from './components/pro/Avatar';
-import MDBBtnFixed from './components/pro/ButtonFixed';
-import MDBBtnFixedItem from './components/pro/ButtonFixedItem';
-import MDBCardUp from './components/pro/CardUp';
-import MDBChip from './components/pro/Chip';
-import MDBChipsInput from './components/pro/ChipsInput';
-import MDBCollapseHeader from './components/pro/CollapseHeader';
-MDBDropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
-import MDBDatePicker from './components/pro/DatePicker';
-import MDBExportToCSV from './components/pro/ExportToCSV';
-import MDBTimePicker from './components/pro/TimePicker';
-import MDBFlippingCard from './components/pro/FlippingCard';
-import MDBFileInput from './components/pro/InputFile';
-import MDBRangeInput from './components/pro/InputRange';
-import MDBSwitch from './components/pro/InputSwitch';
-import MDBLightboxStyles from './components/pro/Lightbox.css';
-import MDBScrollbar from './components/pro/PerfectScrollbar';
-import MDBScrollspyBox from './components/pro/ScrollSpyBox';
-import MDBScrollspyList from './components/pro/ScrollSpyList';
-import MDBScrollspyListItem from './components/pro/ScrollSpyListItem';
-import MDBScrollspyText from './components/pro/ScrollSpyText';
-import MDBSideNav from './components/pro/SideNav';
-import MDBSideNavCat from './components/pro/SideNavCat';
-import MDBSideNavItem from './components/pro/SideNavItem';
-import MDBSideNavLink from './components/pro/SideNavLink';
-import MDBSideNavNav from './components/pro/SideNavNav';
-import MDBSelect from './components/pro/Select';
-import MDBSelectInput from './components/pro/SelectInput';
-import MDBSelectOptions from './components/pro/SelectOptions';
-import MDBSelectOption from './components/pro/SelectOption';
-import MDBSpinner from './components/pro/Spinner';
-import MDBStep from './components/pro/Step';
-import MDBStepper from './components/pro/Stepper';
-import MDBTableEditable from './components/pro/TableEditable';
-import MDBTabPane from './components/pro/TabPane';
-import MDBTabContent from './components/pro/TabContent';
-import MDBSticky from './components/pro/Sticky';
-import MDBStickyContent from './components/pro/StickyContainer';
-import MDBTestimonial from './components/pro/Testimonial';
 
 export {
   // FREE
@@ -302,44 +220,6 @@ export {
   toast,
   ToastContainer,
   cssTransition,
-  // PRO
-  Autocomplete,
-  Avatar,
-  ButtonFixed,
-  ButtonFixedItem,
-  CardUp,
-  Chip,
-  ChipsInput,
-  CollapseHeader,
-  ExportToCSV,
-  FlippingCard,
-  InputFile,
-  InputRange,
-  InputSwitch,
-  LightboxStyles,
-  PerfectScrollbar,
-  ScrollSpyBox,
-  ScrollSpyList,
-  ScrollSpyListItem,
-  ScrollSpyText,
-  SideNav,
-  SideNavCat,
-  SideNavItem,
-  SideNavLink,
-  SideNavNav,
-  Select,
-  SelectInput,
-  SelectOptions,
-  SelectOption,
-  Spinner,
-  Step,
-  Stepper,
-  TableEditable,
-  TabPane,
-  TabContent,
-  Sticky,
-  StickyContainer,
-  Testimonial,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,
@@ -410,45 +290,5 @@ export {
   MDBTableFoot,
   MDBTextarea,
   MDBTooltip,
-  MDBView,
-  // MDB PRO
-  MDBAutocomplete,
-  MDBAvatar,
-  MDBBtnFixed,
-  MDBBtnFixedItem,
-  MDBCardUp,
-  MDBChip,
-  MDBChipsInput,
-  MDBCollapseHeader,
-  MDBExportToCSV,
-  MDBDatePicker,
-  MDBTimePicker,
-  MDBFlippingCard,
-  MDBFileInput,
-  MDBRangeInput,
-  MDBSwitch,
-  MDBLightboxStyles,
-  MDBScrollbar,
-  MDBScrollspyBox,
-  MDBScrollspyList,
-  MDBScrollspyListItem,
-  MDBScrollspyText,
-  MDBSideNav,
-  MDBSideNavCat,
-  MDBSideNavItem,
-  MDBSideNavLink,
-  MDBSideNavNav,
-  MDBSelect,
-  MDBSelectInput,
-  MDBSelectOptions,
-  MDBSelectOption,
-  MDBSpinner,
-  MDBTableEditable,
-  MDBTabPane,
-  MDBTabContent,
-  MDBStep,
-  MDBStepper,
-  MDBSticky,
-  MDBStickyContent,
-  MDBTestimonial
+  MDBView
 };
