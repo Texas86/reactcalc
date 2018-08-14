@@ -2,14 +2,20 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 
 // FREE
+import AnimationPage from './pages/AnimationPage';
 import HomePage from './pages/HomePage';
 import ButtonPage from './pages/ButtonPage';
 import CSSPage from './pages/CSSPage';
 import TablePage from './pages/TablePage';
+import TableResponsivePage from './pages/TableResponsivePage';
+import TableScrollPage from './pages/TableScrollPage';
+import TableStylesPage from './pages/TableStylesPage';
 import BadgePage from './pages/BadgePage';
 import BreadcrumbPage from './pages/BreadcrumbPage';
 import FaPage from './pages/FaPage';
 import ComponentsPage from './pages/ComponentsPage';
+import DatatablePage from './pages/DatatablePage';
+import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
 import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
@@ -35,15 +41,64 @@ import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
 import ValidationPage from './pages/ValidationPage';
 
+// PRO
+import MaterialDropdownPage from './pages/pro/DropdownPage';
+import AutocompletePage from './pages/pro/AutocompletePage';
+import ButtonPagePro from './pages/pro/ButtonPage';
+import ChartsPagePro from './pages/pro/ChartsPage';
+import ChipsPage from './pages/pro/ChipsPage';
+import InputPagePro from './pages/pro/InputPage';
+import CollapsePagePro from './pages/pro/CollapsePage';
+import ScrollBarPage from './pages/pro/ScrollBarPage';
+import ScrollSpyPage from './pages/pro/ScrollSpyPage';
+import SelectPage from './pages/pro/SelectPage';
+import SideNavPage from './pages/pro/SideNavPage';
+import DatePickerPage from './pages/pro/DatePickerPage';
+import DoubleNavigationPage from './pages/pro/DoubleNavigationPage';
+import TimePickerPage from './pages/pro/TimePickerPage';
+import StickyPage from './pages/pro/StickyPage';
+import LightboxPage from './pages/pro/LightboxPage';
+import MultiCarouselPage from './pages/pro/MultiCarouselPage';
+import ProgressPagePro from './pages/pro/ProgressPage';
+import TabsPage from './pages/pro/TabsPage';
+import ThumbnailsCarousel from './pages/pro/ThumbnailsCarousel';
+import SectionsPage from './pages/pro/sections/SectionsPage';
+import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
+import TestimonialsMultiPage from './pages/pro/sections/TestimonialsMultiPage';
+import EcommercePage from './pages/pro/sections/EcommercePage';
+import AppPage from './pages/pro/sections/AppPage';
+import ContactFormPage from './pages/pro/sections/ContactFormPage';
+import ClassicFormPage from './pages/pro/sections/ClassicFormPage';
+import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage';
+import ProjectsPage from './pages/pro/sections/ProjectsPage';
+import FeaturesPage from './pages/pro/sections/FeaturesPage';
+import ContactPage from './pages/pro/sections/ContactPage';
+import SocialButtonsPage from './pages/pro/SocialButtonsPage';
+import StepperPage from './pages/pro/StepperPage';
+import BlogPage from './pages/pro/sections/BlogPage';
+import TeamPage from'./pages/pro/sections/TeamPage';
+import MagazinePage from'./pages/pro/sections/MagazinePage';
+import SocialPage from'./pages/pro/sections/SocialPage';
+import FormsPagePro from './pages/pro/FormsPage';
+import CardsPagePro from'./pages/pro/CardsPage';
+import SearchPagePro from './pages/pro/SearchPage';
+import FooterPagePro from './pages/pro/FooterPage';
+import TableEditable from './pages/pro/TableEditablePage';
+import DatatableCsvPage from './pages/pro/DatatableCsvPage'
+
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
         {/* FREE */}
+        <Route path='/css/animations' component={AnimationPage} />
         <Route exact path='/' component={HomePage} />
         <Route exact path='/css' component={CSSPage} />
         <Route exact path='/css/table' component={TablePage} />
         <Route exact path='/components' component={ComponentsPage} />
+        <Route path='/css/table-responsive' component={TableResponsivePage} />
+        <Route path='/css/table-scroll' component={TableScrollPage} />
+        <Route path='/css/table-styles' component={TableStylesPage} />
         <Route path='/components/badge' component={BadgePage} />
         <Route path='/components/breadcrumb' component={BreadcrumbPage} />
         <Route path='/components/media' component={MediaPage} />
@@ -73,6 +128,53 @@ class Routes extends React.Component {
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
         <Route path='/components/validation' component={ValidationPage} />
+        <Route path='/advanced/datatable' component={DatatablePage} />
+        <Route path='/advanced/datatable-api' component={DatatableApiPage} />
+        {/* PRO */}
+        <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
+        <Route path='/components/pro/autocomplete' component={AutocompletePage} />
+        <Route path='/advanced/pro/charts' component={ChartsPagePro} />
+        <Route path='/components/pro/buttons' component={ButtonPagePro} />
+        <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
+        <Route path='/components/pro/chips' component={ChipsPage} />
+        <Route path='/components/pro/input' component={InputPagePro} />
+        <Route path='/advanced/pro/sidenav' component={SideNavPage} />
+        <Route path='/advanced/pro/select' component={SelectPage} />
+        <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
+        <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
+        <Route path='/advanced/pro/lightbox' component={LightboxPage} />
+        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
+        <Route path='/components/pro/progress' component={ProgressPagePro} />
+        <Route path='/advanced/pro/scrollbar' component={ScrollBarPage} />
+        <Route path='/advanced/pro/scrollspy' component={ScrollSpyPage} />
+        <Route path='/advanced/pro/sticky' component={StickyPage} />
+        <Route path='/components/pro/tabs' component={TabsPage} />
+        <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
+        <Route path='/css/pro/double' component={DoubleNavigationPage} />
+        <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
+        <Route path='/components/pro/forms' component={FormsPagePro} />
+        <Route path='/components/pro/cards' component={CardsPagePro} />
+        <Route path='/components/pro/search' component={SearchPagePro} />
+        <Route path='/components/pro/footer' component={FooterPagePro} />
+        <Route path='/advanced/pro/tableeditable' component={TableEditable} />
+        <Route path='/components/pro/stepper' component={StepperPage} />
+        <Route path='/advanced/datatable-csv' component={DatatableCsvPage} />
+        {/* PRO SECTIONS */}
+        <Route path='/sections' component={SectionsPage} />
+        <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
+        <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
+        <Route path='/pro/sections/ecommerce' component={EcommercePage} />
+        <Route path='/pro/sections/app' component={AppPage} />
+        <Route path='/pro/sections/contactform' component={ContactFormPage} />
+        <Route path='/pro/sections/classicform' component={ClassicFormPage} />
+        <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
+        <Route path='/pro/sections/projects' component={ProjectsPage} />
+        <Route path='/pro/sections/features' component={FeaturesPage} />
+        <Route path='/pro/sections/contact' component={ContactPage} />
+        <Route path='/pro/sections/blog' component={BlogPage} />
+        <Route path='/pro/sections/team' component={TeamPage} />
+        <Route path='/pro/sections/magazine' component={MagazinePage} />
+        <Route path='/pro/sections/social' component={SocialPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
