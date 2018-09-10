@@ -21,19 +21,6 @@ class ComponentsPage extends React.Component {
                 <NavLink className="list-group-item list-group-item-action" to="/navigation/footer">
                   <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Footer<Fa icon="angle-right" /></h5>
                 </NavLink>
-                <h6 className="mt-3 grey-text">PRO </h6>
-                <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/double">
-                  <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Double Navigation<Fa icon="angle-right" /></h5>
-                </NavLink>
-                <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/footer">
-                  <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Footer<Fa icon="angle-right" /></h5>
-                </NavLink>
-                <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/scrollspy">
-                  <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">ScrollSpy<Fa icon="angle-right" /></h5>
-                </NavLink>
-                <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/sidenav">
-                  <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">SideNav<Fa icon="angle-right" /></h5>
-                </NavLink>
               </ul>
             </Jumbotron>
           </Col>
