@@ -9,68 +9,50 @@ import DatePicker from 'material-ui-pickers/DatePicker';
 import moment from 'moment';
 
 import './DatePicker.css';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 export default class MDBDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: props.value,
-      muiTheme: createMuiTheme(props.theme)
+      selectedDate: props.value
     }
   }
 
   handleDateChange = (date) => {
-    this.setState({ selectedDate: date ? date._d : this.props.value });
+    this.setState({ selectedDate: date ? date : this.props.value });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
       this.props.getValue(this.state.selectedDate);
     }
-
-    if(prevProps.theme !== this.props.theme) {
-      this.setState({ muiTheme: createMuiTheme(this.props.theme) });
-    }
   }
 
   render() {
     const {
-      theme,
-      adornmentPosition,
       allowKeyboardControl,
-      animateYearScrolling,
       autoOk,
       cancelLabel,
+      className,
       clearable,
       clearLabel,
       disableFuture,
-      disableOpenOnEnter,
       disablePast,
-      emptyLabel,
+      format,
+      getValue,
       initialFocusedDate,
-      InputAdornmentProps,
       invalidDateMessage,
       invalidLabel,
       keyboard,
       keyboardIcon,
-      leftArrowIcon,
       mask,
       maxDate,
       maxDateMessage,
       minDate,
       minDateMessage,
       okLabel,
-      onInputChange,
-      openToYearSelection,
-      rightArrowIcon,
       showTodayButton,
-      TextFieldComponent,
       todayLabel,
-      locale,
-      format,
-      className,
-      getValue,
       value,
       tag: Tag,
       ...attributes
@@ -83,94 +65,47 @@ export default class MDBDatePicker extends Component {
 
     return (
       <Tag className={classes}>
-        <MuiThemeProvider theme={this.state.muiTheme}>
-          <MuiPickersUtilsProvider locale={locale} moment={moment} utils={MomentUtils}>
-            <DatePicker
-              {...attributes}
-              adornmentPosition={adornmentPosition}
-              allowKeyboardControl={allowKeyboardControl}
-              animateYearScrolling={animateYearScrolling}
-              autoOk={autoOk}
-              cancelLabel={cancelLabel}
-              clearable={clearable}
-              clearLabel={clearLabel}
-              disableFuture={disableFuture}
-              disableOpenOnEnter={disableOpenOnEnter}
-              disablePast={disablePast}
-              emptyLabel={emptyLabel}
-              initialFocusedDate={initialFocusedDate}
-              InputAdornmentProps={InputAdornmentProps}
-              invalidDateMessage={invalidDateMessage}
-              invalidLabel={invalidLabel}
-              keyboard={keyboard}
-              keyboardIcon={keyboardIcon}
-              leftArrowIcon={leftArrowIcon}
-              mask={mask}
-              maxDate={maxDate}
-              maxDateMessage={maxDateMessage}
-              minDate={minDate}
-              minDateMessage={minDateMessage}
-              okLabel={okLabel}
-              onInputChange={onInputChange}
-              openToYearSelection={openToYearSelection}
-              rightArrowIcon={rightArrowIcon}
-              showTodayButton={showTodayButton}
-              TextFieldComponent={TextFieldComponent}
-              todayLabel={todayLabel}
-              format={format || "DD MMMM, YYYY"}
-              value={this.state.selectedDate}
-              onChange={this.handleDateChange}
-            />
-          </MuiPickersUtilsProvider>
-        </MuiThemeProvider>
+        <input
+          type="date"
+          onChange={(e) => this.handleDateChange(e.target.value)}
+          value={this.state.selectedDate}
+          {...attributes}
+        />
       </Tag>
     );
   }
 }
 
 MDBDatePicker.propTypes = {
-  theme: PropTypes.object,
-  adornmentPosition: PropTypes.string,
   allowKeyboardControl: PropTypes.bool,
-  animateYearScrolling: PropTypes.bool,
   autoOk: PropTypes.bool,
   cancelLabel: PropTypes.node,
+  className: PropTypes.string,
   clearable: PropTypes.bool,
   clearLabel: PropTypes.node,
   disableFuture: PropTypes.object,
-  disableOpenOnEnter: PropTypes.bool,
   disablePast: PropTypes.bool,
-  emptyLabel: PropTypes.string,
+  format: PropTypes.string,
+  getValue: PropTypes.func,
   initialFocusedDate: PropTypes.string,
-  InputAdornmentProps: PropTypes.object,
-  invalidDateMessage: PropTypes.node,
+  invalidDateMessage: PropTypes.string,
   invalidLabel: PropTypes.string,
   keyboard: PropTypes.bool,
-  keyboardIcon: PropTypes.node,
-  leftArrowIcon: PropTypes.node,
   mask: PropTypes.any,
   maxDate: PropTypes.string,
   maxDateMessage: PropTypes.node,
   minDate: PropTypes.string,
   minDateMessage: PropTypes.node,
   okLabel: PropTypes.node,
-  onInputChange: PropTypes.func,
-  openToYearSelection: PropTypes.bool,
-  rightArrowIcon: PropTypes.node,
   showTodayButton: PropTypes.bool,
-  TextFieldComponent: PropTypes.string,
   todayLabel: PropTypes.string,
-  locale: PropTypes.string,
-  format: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  getValue: PropTypes.func,
-  value: PropTypes.instanceOf(Date)
+  value: PropTypes.instanceOf(Date),
+  tag: PropTypes.node
 };
 
 MDBDatePicker.defaultProps = {
-  theme: {},
+  getValue: () => {},
+  format: "DD MMMM, YYYY",
   tag: 'div',
-  value: new Date(),
-  getValue: () => {}
+  value: new Date()
 };
