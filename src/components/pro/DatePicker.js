@@ -59,7 +59,9 @@ export default class MDBDatePicker extends Component {
           toggle={() => this.togglePicker(false)}
           centered
         >
-          <Calendar></Calendar>
+          <Calendar
+            startDay={new Date()}
+          />
         </Modal>
       </React.Fragment>
     );

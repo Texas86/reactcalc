@@ -8,7 +8,7 @@ class Calendar extends Component {
   };
 
   componentDidMount() {
-    this.setState({ nestedWeeks: this.getWeeksArray(new Date()) });
+    this.setState({ nestedWeeks: this.getWeeksArray(this.props.startDay) });
   }
 
   getWeeksArray = date => {
@@ -37,7 +37,7 @@ class Calendar extends Component {
           <div key={`week-${week[0].toString()}`} className="d-flex">
             {week.map(day => (
               <Button floating key={day.toString()}>
-                {DateFns.getDate(day)}
+                {DateFns.format(day, "D")}
               </Button>
             ))}
           </div>
