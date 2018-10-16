@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import Modal from "./../Modal";
+import Calendar from "./Pickers/Calendar";
 
 /* eslint-disable */
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DatePicker from 'material-ui-pickers/DatePicker';
-import moment from 'moment';
+// import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+// import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+// import DatePicker from 'material-ui-pickers/DatePicker';
+// import moment from 'moment';
 
 import './DatePicker.css';
 
@@ -14,58 +15,34 @@ export default class MDBDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value
+      isPickerOpen: false,
+      pickerValue: props.value
     }
   }
 
   componentDidMount() {
     
   }
-  
-  handleDateChange = (date) => {
-    this.setState({ value: date });
-  }
 
   componentDidUpdate(prevProps, prevState) {
-    if(this.props.getValue && prevState.value !== this.state.value) {
-      this.props.getValue(this.state.value);
+    if(this.props.getValue && prevState.pickerValue !== this.state.pickerValue) {
+      this.props.getValue(this.state.pickerValue);
     }
   }
+  
+  handleDateChange = (e) => {
+    this.setState({ pickerValue: e.target.value });
+  }
+
+  togglePicker = (bool) => this.setState({ isPickerOpen: bool });
 
   render() {
-    const {
-      allowKeyboardControl,
-      autoOk,
-      cancelLabel,
-      children,
-      clearable,
-      clearLabel,
-      disableFuture,
-      disablePast,
-      format,
-      getValue,
-      initialFocusedDate,
-      invalidDateMessage,
-      invalidLabel,
-      keyboard,
-      keyboardIcon,
-      mask,
-      maxDate,
-      maxDateMessage,
-      minDate,
-      minDateMessage,
-      okLabel,
-      showTodayButton,
-      todayLabel,
-      value
-    } = this.props;
-
     const clonedChildren = React.Children.map(this.props.children, child => {
       if(child.type === "input" || child.type.name === "Input") {
         return React.cloneElement(child , {
-          onChange: (e) => this.handleDateChange(e.target.value),
-          onClick: this.openPicker,
-          value: this.state.value
+          onChange: (e) => this.handleDateChange(e),
+          onClick: () => this.togglePicker(true),
+          value: this.state.pickerValue
         });
       }
       else {
@@ -76,6 +53,14 @@ export default class MDBDatePicker extends Component {
     return (
       <React.Fragment>
         {clonedChildren}
+        <Modal
+          backdrop={true}
+          isOpen={this.state.isPickerOpen}
+          toggle={() => this.togglePicker(false)}
+          centered
+        >
+          <Calendar></Calendar>
+        </Modal>
       </React.Fragment>
     );
   }
