@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBDatePicker, Container } from "mdbreact";
+import { MDBDatePicker, Container, MDBInput } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 // import moment from 'moment';
@@ -19,7 +19,12 @@ class DatePickerPage extends React.Component {
           title="Date Picker"
           href="https://mdbootstrap.com/react/advanced/datepicker/"
         />
-        <MDBDatePicker getValue={this.getPickerValue} />
+        <MDBDatePicker
+          getValue={this.getPickerValue}
+          value={new Date().toLocaleDateString()}
+        >
+          <MDBInput label="Pick date" />
+        </MDBDatePicker>
       </Container>
     );
   }

@@ -14,17 +14,21 @@ export default class MDBDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: props.value
+      value: props.value
     }
   }
 
+  componentDidMount() {
+    
+  }
+  
   handleDateChange = (date) => {
-    this.setState({ selectedDate: date ? date : this.props.value });
+    this.setState({ value: date });
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
-      this.props.getValue(this.state.selectedDate);
+    if(this.props.getValue && prevState.value !== this.state.value) {
+      this.props.getValue(this.state.value);
     }
   }
 
@@ -33,7 +37,7 @@ export default class MDBDatePicker extends Component {
       allowKeyboardControl,
       autoOk,
       cancelLabel,
-      className,
+      children,
       clearable,
       clearLabel,
       disableFuture,
@@ -53,25 +57,26 @@ export default class MDBDatePicker extends Component {
       okLabel,
       showTodayButton,
       todayLabel,
-      value,
-      tag: Tag,
-      ...attributes
+      value
     } = this.props;
 
-    const classes = classNames(
-      'md-form',
-      className
-    );
+    const clonedChildren = React.Children.map(this.props.children, child => {
+      if(child.type === "input" || child.type.name === "Input") {
+        return React.cloneElement(child , {
+          onChange: (e) => this.handleDateChange(e.target.value),
+          onClick: this.openPicker,
+          value: this.state.value
+        });
+      }
+      else {
+        return child;
+      }
+    });
 
     return (
-      <Tag className={classes}>
-        <input
-          type="date"
-          onChange={(e) => this.handleDateChange(e.target.value)}
-          value={this.state.selectedDate}
-          {...attributes}
-        />
-      </Tag>
+      <React.Fragment>
+        {clonedChildren}
+      </React.Fragment>
     );
   }
 }
@@ -99,13 +104,11 @@ MDBDatePicker.propTypes = {
   okLabel: PropTypes.node,
   showTodayButton: PropTypes.bool,
   todayLabel: PropTypes.string,
-  value: PropTypes.instanceOf(Date),
-  tag: PropTypes.node
+  value: PropTypes.string
 };
 
 MDBDatePicker.defaultProps = {
   getValue: () => {},
   format: "DD MMMM, YYYY",
-  tag: 'div',
-  value: new Date()
+  value: ""
 };
