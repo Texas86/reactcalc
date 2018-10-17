@@ -7,14 +7,12 @@ import Button from "../../Button";
 
 const Day = ({ day, date }) => {
   return (
-    <div>
-      <Button
-        disabled={!isWithinRange(day, startOfMonth(date), endOfMonth(date))}
-        floating
-      >
-        {format(day, "D")}
-      </Button>
-    </div>
+    <Button
+      disabled={!isWithinRange(day, startOfMonth(date), endOfMonth(date))}
+      floating
+    >
+      {format(day, "D")}
+    </Button>
   );
 };
 

@@ -7,6 +7,7 @@ import isBefore from "date-fns/is_before";
 import addDays from "date-fns/add_days";
 import Day from "./Day";
 import Week from "./Week";
+import MonthSlider from "./MonthSlider";
 
 const getWeeksArray = date => {
   const start = startOfWeek(startOfMonth(date));
@@ -27,13 +28,13 @@ const getWeeksArray = date => {
   return nestedWeeks;
 };
 
-const Month = ({ date }) => {
+const Month = ({ date, nextMonth, prevMonth }) => {
   const nestedWeeks = getWeeksArray(date);
 
   return (
-    <div>
+    <React.Fragment>
+      <MonthSlider nextMonth={nextMonth} prevMonth={prevMonth} date={date} />
       <Week week={nestedWeeks[0]} format="ddd" />
-
       {nestedWeeks.map((week, index) => (
         <div key={`week-${week[index].toString()}`} className="d-flex">
           {week.map(day => (
@@ -42,7 +43,7 @@ const Month = ({ date }) => {
         </div>
       ))}
 
-    </div>
+    </React.Fragment>
   );
 };
 

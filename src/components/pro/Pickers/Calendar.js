@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import Month from "./Month";
+import addMonths from "date-fns/add_months";
+import subMonths from 'date-fns/sub_months';
 
 class Calendar extends Component {
   state = {
     date: this.props.startDate || new Date()
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if(prevState.startDate !== nextProps.startDate) {
-      return { 
-        date: nextProps.startDate
-      }
-    }
+  nextMonth = () => this.setState(prevState => {
+    const date = addMonths(prevState.date, 1);
+    return { date };
+  });
 
-    return null;
-  }
+  prevMonth = () => this.setState(prevState => {
+    const date = subMonths(prevState.date, 1);
+    return { date };
+  });
 
   render() {
     return (
       <div>
-        <Month date={this.state.date} />
+        <Month nextMonth={this.nextMonth} prevMonth={this.prevMonth} date={this.state.date} />
       </div>
     );
   }
