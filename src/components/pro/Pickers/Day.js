@@ -5,9 +5,10 @@ import startOfMonth from "date-fns/start_of_month";
 import endOfMonth from "date-fns/end_of_month";
 import Button from "../../Button";
 
-const Day = ({ day, date }) => {
+const Day = ({ day, date, chooseDate }) => {
   return (
     <Button
+      onClick={() => chooseDate(day)}
       disabled={!isWithinRange(day, startOfMonth(date), endOfMonth(date))}
       floating
     >

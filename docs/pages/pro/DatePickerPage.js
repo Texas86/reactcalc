@@ -22,6 +22,7 @@ class DatePickerPage extends React.Component {
         <MDBDatePicker
           getValue={this.getPickerValue}
           value={new Date().toLocaleDateString()}
+          format="MM/DD/YYYY"
         >
           <MDBInput label="Pick date" />
         </MDBDatePicker>

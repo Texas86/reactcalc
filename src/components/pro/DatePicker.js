@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import format from 'date-fns/format';
+import addMonths from "date-fns/add_months";
+import subMonths from 'date-fns/sub_months';
 import Modal from "./../Modal";
 import Calendar from "./Pickers/Calendar";
 
@@ -16,6 +19,7 @@ export default class MDBDatePicker extends Component {
     super(props);
     this.state = {
       isPickerOpen: false,
+      date: props.value || new DataCue(),
       pickerValue: props.value
     }
   }
@@ -34,25 +38,39 @@ export default class MDBDatePicker extends Component {
     this.setState({ pickerValue: e.target.value });
   }
 
-  togglePicker = (bool) => this.setState({ isPickerOpen: bool });
+  togglePicker = (isPickerOpen) => this.setState({ isPickerOpen });
+
+  chooseDate = (date) => this.setState({ pickerValue: date });
+
+  nextMonth = () => this.setState(prevState => {
+    const date = addMonths(prevState.date, 1);
+    return { date };
+  });
+
+  prevMonth = () => this.setState(prevState => {
+    const date = subMonths(prevState.date, 1);
+    return { date };
+  });
+
+  cloneChildren = () => React.Children.map(this.props.children, child => {
+    if(child.type === "input" || child.type.name === "Input") {
+      return React.cloneElement(child , {
+        onChange: (e) => this.handleDateChange(e),
+        onClick: () => this.togglePicker(true),
+        value: format(this.state.pickerValue, this.props.format)
+      });
+    }
+    else {
+      return null;
+    }
+  });
 
   render() {
-    const clonedChildren = React.Children.map(this.props.children, child => {
-      if(child.type === "input" || child.type.name === "Input") {
-        return React.cloneElement(child , {
-          onChange: (e) => this.handleDateChange(e),
-          onClick: () => this.togglePicker(true),
-          value: this.state.pickerValue
-        });
-      }
-      else {
-        return child;
-      }
-    });
-
+    const clonedInput = this.cloneChildren();
+    
     return (
       <React.Fragment>
-        {clonedChildren}
+        {clonedInput}
         <Modal
           backdrop={true}
           isOpen={this.state.isPickerOpen}
@@ -60,7 +78,10 @@ export default class MDBDatePicker extends Component {
           centered
         >
           <Calendar
-            startDate={new Date()}
+            date={this.state.date}
+            chooseDate={this.chooseDate}
+            nextMonth={this.nextMonth} 
+            prevMonth={this.prevMonth}
           />
         </Modal>
       </React.Fragment>
