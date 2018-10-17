@@ -60,7 +60,7 @@ export default class MDBDatePicker extends Component {
           centered
         >
           <Calendar
-            startDay={new Date()}
+            startDate={new Date()}
           />
         </Modal>
       </React.Fragment>

@@ -6,6 +6,7 @@ import endOfMonth from "date-fns/end_of_month";
 import isBefore from "date-fns/is_before";
 import addDays from "date-fns/add_days";
 import Day from "./Day";
+import Week from "./Week";
 
 const getWeeksArray = date => {
   const start = startOfWeek(startOfMonth(date));
@@ -27,15 +28,20 @@ const getWeeksArray = date => {
 };
 
 const Month = ({ date }) => {
+  const nestedWeeks = getWeeksArray(date);
+
   return (
     <div>
-      {getWeeksArray(date).map((week, index) => (
+      <Week week={nestedWeeks[0]} format="ddd" />
+
+      {nestedWeeks.map((week, index) => (
         <div key={`week-${week[index].toString()}`} className="d-flex">
           {week.map(day => (
             <Day key={day.toString()} day={day} date={date} />
           ))}
         </div>
       ))}
+
     </div>
   );
 };
