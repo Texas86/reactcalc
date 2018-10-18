@@ -9,14 +9,16 @@ class NavItem extends Component {
       className,
       active,
       text,
+      mega,
       tag: Tag,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       "nav-item",
-      active ? "active" : "",
-      text ? "navbar-text" : "",
+      mega && "dropdown mega-dropdown",
+      active && "active",
+      text && "navbar-text",
       className
     );
 

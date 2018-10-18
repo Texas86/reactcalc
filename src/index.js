@@ -111,6 +111,7 @@ import StickyContainer from "./components/pro/StickyContainer";
 import Testimonial from "./components/pro/Testimonial";
 import Timeline from "./components/pro/Timeline";
 import TimelineStep from "./components/pro/TimelineStep";
+import MegaMenu from "./components/pro/MegaMenu";
 
 // MDB FREE
 import MDBBadge from "./components/Badge";
@@ -352,6 +353,7 @@ export {
   Testimonial,
   Timeline,
   TimelineStep,
+  MegaMenu,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,

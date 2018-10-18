@@ -100,6 +100,7 @@ import DatatableCsvPage from "./pages/pro/DatatableCsvPage";
 import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
+import MegaMenuPage from "./pages/pro/MegaMenuPage";
 
 class Routes extends React.Component {
   render() {
@@ -207,6 +208,8 @@ class Routes extends React.Component {
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
+        <Route path="/navigation/pro/megamenu" component={MegaMenuPage} />
+
         {/* PRO SECTIONS */}
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route
