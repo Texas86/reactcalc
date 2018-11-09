@@ -1,10 +1,6 @@
 Material Design for Bootstrap
 
-<<<<<<< HEAD
-Version: MDB React Pro 4.8.2
-=======
 Version: MDB React Pro 4.8.3
->>>>>>> 51e5233be3af3f2b21f9f14c247ee9f80b97747c
 
 Documentation:
 https://mdbootstrap.com/docs/react
