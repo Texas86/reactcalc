@@ -68,7 +68,6 @@ import TableFoot from "./components/TableFoot";
 import TextField from "./components/TextField";
 import Tooltip from "./components/Tooltip";
 import View from "./components/View";
-import { toast, ToastContainer, cssTransition } from "react-toastify";
 import HamburgerToggler from "./components/HamburgerToggler";
 import Iframe from "./components/Iframe";
 
@@ -223,9 +222,6 @@ export  {
   TextField,
   Tooltip,
   View,
-  toast,
-  ToastContainer,
-  cssTransition,
   HamburgerToggler,
   Iframe,
   // MDB FREE

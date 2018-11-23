@@ -50,61 +50,6 @@ class ComponentsPage extends React.Component {
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>
-                <h6 className="mt-3 grey-text">PRO </h6>
-                <NavLink
-                  className="list-group-item list-group-item-action"
-                  to="/forms/pro/autocomplete"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Autocomplete
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
-                  to="/forms/pro/forms"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Forms
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
-                  to="/forms/pro/input"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Input
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
-                  to="/forms/pro/select"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Material Select
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink className="list-group-item list-group-item-action" to="/forms/pro/slider">
-                  <h5 style={{ margin: "0" }} className="justify-content-between d-flex align-items-center">
-                    Slider
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
               </ul>
             </Jumbotron>
           </Col>

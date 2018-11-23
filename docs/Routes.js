@@ -26,12 +26,10 @@ import DatatablePage from "./pages/DatatablePage";
 import DatatableApiPage from "./pages/DatatableApiPage";
 import ModalPage from "./pages/ModalPage";
 import ModalFormPage from "./pages/ModalFormPage";
-import ModalExamplesPage from "./pages/ModalExamplesPage";
 import ProgressPage from "./pages/ProgressPage";
 import InputPage from "./pages/InputPage";
 import MediaPage from "./pages/MediaPage";
 import JumbotronPage from "./pages/JumbotronPage";
-import NotificationPage from "./pages/NotificationPage";
 import CardsPage from "./pages/CardsPage";
 import PaginationPage from "./pages/PaginationPage";
 import PopoverPage from "./pages/PopoverPage";
@@ -80,7 +78,6 @@ class Routes extends React.Component {
         <Route path="/navigation/navbar" component={NavbarPage} />
         <Route path="/components/media" component={MediaPage} />
         <Route path="/forms/input" component={InputPage} />
-        <Route path="/addons/pro/notification" component={NotificationPage} />
         <Route path="/components/dropdown" component={DropdownPage} />
         <Route path="/css/icons" component={FaPage} />
         <Route path="/css/jumbotron" component={JumbotronPage} />
@@ -95,7 +92,6 @@ class Routes extends React.Component {
         <Route path="/navigation/footer" component={FooterPage} />
         <Route path="/modals/modal" component={ModalPage} />
         <Route path="/modals/modal-form" component={ModalFormPage} />
-        <Route path="/modals/modal-examples" component={ModalExamplesPage} />
         <Route path="/advanced/carousel" component={CarouselPage} />
         <Route path="/advanced/collapse" component={CollapsePage} />
         <Route path="/advanced/videocarousel" component={VideoCarouselPage} />
