@@ -1,5 +1,6 @@
 // FREE
 import Animation from "./components/Animation";
+import Alert from "./components/Alert";
 import Badge from "./components/Badge";
 import Breadcrumb from "./components/Breadcrumb";
 import BreadcrumbItem from "./components/BreadcrumbItem";
@@ -73,6 +74,7 @@ import Iframe from "./components/Iframe";
 
 // MDB FREE
 import {MDBBadge} from "./components/Badge";
+import {MDBAlert} from "./components/Alert";
 import {MDBBreadcrumb} from "./components/Breadcrumb";
 import {MDBBreadcrumbItem} from "./components/BreadcrumbItem";
 import {MDBBtn} from "./components/Button";
@@ -151,6 +153,7 @@ let MDBDropdownMenuComponent = require("./components/DropdownMenuComponent")
 export  {
   // FREE
   Animation,
+  Alert,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
@@ -227,6 +230,7 @@ export  {
   Iframe,
   // MDB FREE
   MDBBadge,
+  MDBAlert,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBBtn,
