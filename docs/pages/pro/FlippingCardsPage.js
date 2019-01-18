@@ -1,20 +1,6 @@
 import React, { Component } from "react";
-import {
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBCard,
-  MDBCardUp,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBAvatar,
-  MDBRotatingCard,
-  MDBIcon,
-  MDBBtn
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBCardImage, MDBCardTitle,  MDBCardText, MDBAvatar, MDBRotatingCard, MDBIcon, MDBBtn } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
 class FlippingCardPage extends Component {
 
@@ -23,7 +9,7 @@ class FlippingCardPage extends Component {
     flipped2: false
   }
 
-  handleFlipping = id => {
+  handleFlipping = id => () => {
     const cardId = `flipped${id}`;
     this.setState({ [cardId]: !this.state[cardId] });
   }
@@ -64,9 +50,9 @@ class FlippingCardPage extends Component {
                       href="#!"
                       className="rotate-btn text-dark"
                       data-card="card-1"
-                      onClick={() => this.handleFlipping(1)}
+                      onClick={this.handleFlipping(1)}
                     >
-                      <MDBIcon icon="repeat" /> Click here to rotate
+                      <MDBIcon icon="redo" /> Click here to rotate
                     </a>
                   </MDBCardBody>
                 </MDBCard>
@@ -84,22 +70,22 @@ class FlippingCardPage extends Component {
                     <ul className="list-inline py-2">
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg fb-ic">
-                          <MDBIcon icon="facebook" />
+                          <MDBIcon fab icon="facebook" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg tw-ic">
-                          <MDBIcon icon="twitter" />
+                          <MDBIcon fab icon="twitter" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg gplus-ic">
-                          <MDBIcon icon="google-plus" />
+                          <MDBIcon fab icon="google-plus" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg li-ic">
-                          <MDBIcon icon="linkedin" />
+                          <MDBIcon fab icon="linkedin" />
                         </a>
                       </li>
                     </ul>
@@ -107,7 +93,7 @@ class FlippingCardPage extends Component {
                       href="#!"
                       className="rotate-btn text-dark"
                       data-card="card-1"
-                      onClick={() => this.handleFlipping(1)}
+                      onClick={this.handleFlipping(1)}
                     >
                       <MDBIcon icon="undo" /> Click here to rotate back
                     </a>
@@ -124,26 +110,26 @@ class FlippingCardPage extends Component {
               >
                 <MDBCard className="face back text-center" >
                   <MDBCardBody>
-                    <MDBCardTitle className="text-ceter font-weight-bold my-4">Social shares<MDBIcon icon="close rotate-btn text-muted" onClick={() => this.handleFlipping(2)} /></MDBCardTitle>
+                    <MDBCardTitle className="text-ceter font-weight-bold my-4">Social shares<MDBIcon icon="close rotate-btn text-muted" onClick={this.handleFlipping(2)} /></MDBCardTitle>
                     <hr />
                     <div>
                       <MDBRow center className="flex-wrap">
-                        <MDBBtn tag="a" floating social="dribble"><MDBIcon icon="dribbble" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="slack"><MDBIcon icon="slack" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="ins"><MDBIcon icon="instagram" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="pin"><MDBIcon icon="pinterest" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="tw"><MDBIcon icon="twitter" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="gplus"><MDBIcon icon="google-plus" /></MDBBtn>
-                        <MDBBtn tag="a" floating social="git"><MDBIcon icon="github" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="dribble"><MDBIcon fab icon="dribbble" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="slack"><MDBIcon fab icon="slack" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="ins"><MDBIcon fab icon="instagram" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="pin"><MDBIcon fab icon="pinterest" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="tw"><MDBIcon fab icon="twitter" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="gplus"><MDBIcon fab icon="google-plus" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="git"><MDBIcon fab icon="github" /></MDBBtn>
                       </MDBRow>
                       <h5 className="font-weight-bold my-4">Join our community</h5>
                     </div>
                     <hr />
                     <MDBRow center className="flex-wrap">
-                      <MDBBtn tag="a" social="fb" className="px-4"><MDBIcon icon="facebook" /></MDBBtn>
-                      <MDBBtn tag="a" social="tw" className="px-4"><MDBIcon icon="twitter" /></MDBBtn>
-                      <MDBBtn tag="a" social="li" className="px-4"><MDBIcon icon="linkedin" /></MDBBtn>
-                      <MDBBtn tag="a" social="ins" className="px-4"><MDBIcon icon="instagram" /></MDBBtn>
+                      <MDBBtn tag="a" social="fb" className="px-4"><MDBIcon fab icon="facebook" /></MDBBtn>
+                      <MDBBtn tag="a" social="tw" className="px-4"><MDBIcon fab icon="twitter" /></MDBBtn>
+                      <MDBBtn tag="a" social="li" className="px-4"><MDBIcon fab icon="linkedin" /></MDBBtn>
+                      <MDBBtn tag="a" social="ins" className="px-4"><MDBIcon fab icon="instagram" /></MDBBtn>
                     </MDBRow>
                   </MDBCardBody>
                 </MDBCard>
@@ -157,7 +143,7 @@ class FlippingCardPage extends Component {
                     alt="MDBCard image cap"
                   />
                   <MDBCardBody className="text-center">
-                    <MDBCardTitle tag="h4">MDBCard Title<MDBIcon icon="share-alt text-dark float-right" onClick={() => this.handleFlipping(2)} /></MDBCardTitle>
+                    <MDBCardTitle tag="h4">MDBCard Title<MDBIcon icon="share-alt text-dark float-right" onClick={this.handleFlipping(2)} /></MDBCardTitle>
                     <MDBCardText>
                       Some quick example text to build on the card title and make
                       up the bulk of the card&apos;s content.

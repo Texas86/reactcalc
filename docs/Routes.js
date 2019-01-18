@@ -14,7 +14,7 @@ import AnimationPage from "./pages/AnimationPage";
 import AlertPage from "./pages/AlertPage";
 import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
-import CSSPage from "./pages/CSSPage";
+import CSSNavPage from "./pages/CSSNavPage";
 import TablePage from "./pages/TablePage";
 import TableResponsivePage from "./pages/TableResponsivePage";
 import TableScrollPage from "./pages/TableScrollPage";
@@ -60,6 +60,7 @@ import AutocompletePage from "./pages/pro/AutocompletePage";
 import ButtonPagePro from "./pages/pro/ButtonPage";
 import ChartsPagePro from "./pages/pro/ChartsPage";
 import ChatPage from "./pages/pro/ChatPage";
+import eCommercePage from "./pages/pro/eCommercePage";
 import ChipsPage from "./pages/pro/ChipsPage";
 import InputPagePro from "./pages/pro/InputPage";
 import CollapsePagePro from "./pages/pro/CollapsePage";
@@ -105,6 +106,8 @@ import SliderPage from "./pages/pro/SliderPage";
 import StreakPage from "./pages/pro/StreakPage";
 import ValidationPagePro from "./pages/pro/ValidationPage";
 import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
+import TableStylesPagePro from "./pages/pro/TableStylesPage";
+import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -112,7 +115,7 @@ class Routes extends React.Component {
     return (
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/css" component={CSSPage} />
+        <Route exact path="/css" component={CSSNavPage} />
         <Route exact path="/components" component={ComponentsNavPage} />
         <Route exact path="/advanced" component={AdvancedNavPage} />
         <Route exact path="/navigation" component={NavigationNavPage} />
@@ -170,6 +173,7 @@ class Routes extends React.Component {
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />
+        <Route path="/addons/pro/e-commerce-components" component={eCommercePage} />
         <Route
           path="/components/pro/dropdown"
           component={MaterialDropdownPage}
@@ -182,8 +186,8 @@ class Routes extends React.Component {
         <Route path="/forms/pro/input" component={InputPagePro} />
         <Route path="/navigation/pro/sidenav" component={SideNavPage} />
         <Route path="/forms/pro/select" component={SelectPage} />
-        <Route path="/advanced/pro/datepicker" component={DatePickerPage} />
-        <Route path="/advanced/pro/timepicker" component={TimePickerPage} />
+        <Route path="/forms/pro/datepicker" component={DatePickerPage} />
+        <Route path="/forms/pro/timepicker" component={TimePickerPage} />
         <Route path="/advanced/pro/lightbox" component={LightboxPage} />
         <Route path="/forms/pro/slider" component={SliderPage} />
         <Route
@@ -216,9 +220,11 @@ class Routes extends React.Component {
         <Route path="/components/pro/search" component={SearchPagePro} />
         <Route path="/navigation/pro/footer" component={FooterPagePro} />
         <Route path="/tables/pro/tableeditable" component={TableEditable} />
+        <Route path="/tables/pro/table-styles" component={TableStylesPagePro} />
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
+        <Route path="/modals/pro/modal-examples" component={ModalExamplesProPage} />
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route
           path="/sections/testimonialsMulti"

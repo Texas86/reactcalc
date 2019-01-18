@@ -1,17 +1,6 @@
 import React, { Component } from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBRangeInput,
-  MDBCard,
-  MDBCol,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardImage,
-  MDBIcon,
-  MDBBadge
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBRow, MDBRangeInput, MDBCard, MDBCol, MDBCardBody, MDBCardTitle, MDBCardImage,   MDBIcon, MDBBadge } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 class SliderPage extends Component {
   state = {
@@ -96,7 +85,7 @@ class SliderPage extends Component {
                   <MDBRow className="my-4" center>
                     <MDBIcon
                       className="font-weight-bold blue-text mr-2 mt-1"
-                      icon="thumbs-o-down"
+                      icon="thumbs-down"
                     />
                     <MDBRangeInput
                       min={0}
@@ -106,13 +95,13 @@ class SliderPage extends Component {
                     />
                     <MDBIcon
                       className="font-weight-bold blue-text ml-2 mt-1"
-                      icon="thumbs-o-up"
+                      icon="thumbs-up"
                     />
                   </MDBRow>
                   <MDBRow className="my-4" center>
                     <MDBIcon
                       className="font-weight-bold indigo-text mr-2 mt-1"
-                      icon="dollar"
+                      icon="dollar-sign"
                     />
                     <MDBRangeInput
                       min={0}
@@ -122,7 +111,7 @@ class SliderPage extends Component {
                     />
                     <MDBIcon
                       className="font-weight-bold indigo-text ml-2 mt-1"
-                      icon="eur"
+                      icon="euro-sign"
                     />
                   </MDBRow>
                   <MDBRow className="my-4" center>

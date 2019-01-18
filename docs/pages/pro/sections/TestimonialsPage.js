@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardUp, MDBAvatar, MDBCardBody, MDBIcon, MDBCarousel, MDBCarouselInner, MDBCarouselItem,   MDBTestimonial } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 const  TestimonialsPage = () => {
   return (
@@ -55,7 +55,7 @@ const  TestimonialsPage = () => {
                 <h4 className="font-weight-bold mb-4">Anna Aston</h4>
                 <hr />
                 <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
+                  <MDBIcon icon="quote-left" className="pr-2" />
                   Neque cupiditate assumenda in maiores repudiandae mollitia
                   architecto.
                 </p>
@@ -76,7 +76,7 @@ const  TestimonialsPage = () => {
                 <h4 className="font-weight-bold mb-4">Maria Kate</h4>
                 <hr />
                 <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
+                  <MDBIcon icon="quote-left" className="pr-2" />
                   Delectus impedit saepe officiis ab aliquam repellat rem unde
                   ducimus.
                 </p>
@@ -126,7 +126,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
-                <MDBIcon icon="star-half-full" className="blue-text" />
+                <MDBIcon icon="star-half" className="blue-text" />
               </MDBTestimonial>
             </MDBCarouselItem>
             <MDBCarouselItem itemId="2">
@@ -182,7 +182,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
-                <MDBIcon icon="star-o" className="blue-text" />
+                <MDBIcon icon="star" className="blue-text" />
               </MDBTestimonial>
             </MDBCarouselItem>
           </MDBCarouselInner>
@@ -216,7 +216,7 @@ const  TestimonialsPage = () => {
                 Web Designer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                 eos id officiis hic tenetur quae quaerat ad velit ab hic
                 tenetur.
@@ -226,7 +226,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
-                <MDBIcon icon="star-half-full" />
+                <MDBIcon icon="star-half" />
               </div>
             </MDBTestimonial>
           </MDBCol>
@@ -246,7 +246,7 @@ const  TestimonialsPage = () => {
                 Web Developer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 Ut enim ad minima veniam, quis nostrum exercitationem ullam
                 corporis suscipit laboriosam, nisi ut aliquid commodi.
               </p>
@@ -275,7 +275,7 @@ const  TestimonialsPage = () => {
                 Photographer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui
                 blanditiis praesentium voluptatum deleniti atque corrupti.
               </p>
@@ -284,7 +284,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
-                <MDBIcon icon="star-o" />
+                <MDBIcon icon="star" />
               </div>
             </MDBTestimonial>
           </MDBCol>

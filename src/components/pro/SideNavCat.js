@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import Collapse from "../Collapse";
 import Waves from "../Waves";
+import Fa from '../Fa';
 
 class SideNavCat extends React.Component {
   constructor(props) {
@@ -48,6 +49,10 @@ class SideNavCat extends React.Component {
       className,
       name,
       icon,
+      iconBrand,
+      iconLight,
+      iconRegular,
+      iconSize,
       onClick,
       disabled,
       isOpen,
@@ -72,9 +77,19 @@ class SideNavCat extends React.Component {
           onClick={e => this.handleClick(e, id)}
           {...attributes}
         >
-          {icon && <i className={"fa fa-" + icon}>&nbsp;</i>}
+          {
+            icon && 
+            <Fa 
+              icon={icon} 
+              brand={iconBrand} 
+              light={iconLight} 
+              regular={iconRegular} 
+              size={iconSize}
+              className="mr-2"
+            />
+          }
           {name}
-          <i className="fa fa-angle-down rotate-icon" />
+          <Fa icon="angle-down" className="rotate-icon" />
           <Waves cursorPos={this.state.cursorPos} />
         </a>
         <Collapse id={id} isOpen={this.state.isOpenID}>
@@ -92,6 +107,10 @@ SideNavCat.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   id: PropTypes.string,
   isOpen: PropTypes.bool,
   isOpenID: PropTypes.string,
@@ -101,6 +120,18 @@ SideNavCat.propTypes = {
 };
 
 SideNavCat.defaultProps = {
+  className: "",
+  disabled: false,
+  icon: "",
+  iconBrand: false, 
+  iconLight: false,
+  iconRegular: false,
+  iconSize: "",
+  id: "",
+  isOpen: false, 
+  isOpenID: "",
+  name: "",
+  onClick: () => {},
   tag: "li"
 };
 

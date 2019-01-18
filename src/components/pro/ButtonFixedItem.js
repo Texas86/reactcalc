@@ -14,7 +14,6 @@ class ButtonFixed extends React.Component {
         opacity: "0"
       }
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   handleClick(e) {
@@ -27,11 +26,13 @@ class ButtonFixed extends React.Component {
     this.setState({ cursorPos: cursorPos });
   }
 
-  onClick(e) {
+  onClick = e => {
     if (this.props.disabled) {
       e.preventDefault();
       return;
     }
+
+    this.props.onClick && this.props.onClick()
   }
 
   render() {
@@ -49,12 +50,18 @@ class ButtonFixed extends React.Component {
       role,
       type,
       icon,
+      iconBrand,
+      iconClass,
+      iconLight,
+      iconRegular,
+      iconSize,
       innerRef,
       buttonStyle,
       ...attributes
     } = this.props;
 
     const classes = classNames(
+      size && `btn-${size}`,
       "btn-floating",
       color ? color : false,
       "Ripple-parent",
@@ -71,16 +78,26 @@ class ButtonFixed extends React.Component {
           onTouchStart={this.handleClick.bind(this)}
           className={classes}
         >
-          <Fa icon={this.props.icon} />
+          {
+            icon &&
+            <Fa
+              icon={icon}
+              size={iconSize}
+              brand={iconBrand}
+              light={iconLight}
+              regular={iconRegular}
+              className={iconClass}
+            />
+          }
           {this.props.disabled ? (
             false
           ) : (
-            <Waves
-              cursorPos={this.state.cursorPos}
-              outline={outline}
-              flat={flat}
-            />
-          )}
+              <Waves
+                cursorPos={this.state.cursorPos}
+                outline={outline}
+                flat={flat}
+              />
+            )}
         </a>
       </li>
     );
@@ -105,10 +122,15 @@ ButtonFixed.propTypes = {
   flat: PropTypes.bool,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   onClick: PropTypes.func,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['lg', 'sm']),
   children: PropTypes.node,
   className: PropTypes.string,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   buttonStyle: PropTypes.object
 };
 

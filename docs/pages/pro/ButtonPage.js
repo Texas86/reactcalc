@@ -1,21 +1,17 @@
 import React from "react";
 import { MDBBtn, MDBIcon, MDBBtnFixed, MDBBtnFixedItem, MDBContainer } from "mdbreact";
-import DocsLink from "../DocsLink";
+import DocsLink from "../../components/docsLink";
 
 class ButtonPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonStyle: {
-        transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
-        opacity: "0"
-      }
-    };
-    this.onHover = this.onHover.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
+
+  state = {
+    buttonStyle: {
+      transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
+      opacity: "0"
+    }
   }
 
-  onHover() {
+  onHover = () => {
     this.setState({
       buttonStyle: {
         transform: "scaleY(1) scaleX(1) translateY(0) translateX(0)",
@@ -24,7 +20,11 @@ class ButtonPage extends React.Component {
     });
   }
 
-  onMouseLeave() {
+  handleClick = () => {
+    console.log('Clicked')
+  }
+
+  onMouseLeave = () => {
     this.setState({
       buttonStyle: {
         transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
@@ -108,18 +108,20 @@ class ButtonPage extends React.Component {
               floating
               size="lg"
               color="red"
-              icon="pencil"
+              icon="pencil-alt"
               style={{ bottom: "45px", right: "24px" }}
             >
               <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="red"
                 icon="star"
+                size="sm"
               />
               <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="yellow"
                 icon="user"
+                size="lg"
               />
               <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
@@ -130,6 +132,7 @@ class ButtonPage extends React.Component {
                 buttonStyle={this.state.buttonStyle}
                 color="blue"
                 icon="shopping-cart"
+                onClick={this.handleClick}
               />
             </MDBBtnFixed>
           </section>

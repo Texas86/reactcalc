@@ -1,20 +1,6 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Autocomplete,
-  Row,
-  Col,
-  Input,
-  Button,
-  Card,
-  CardBody,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Fa
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBAutocomplete, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBModal,   MDBModalHeader, MDBModalBody, MDBModalFooter, MDBIcon } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 const states = [
   "Alabama",
@@ -292,7 +278,7 @@ class AutocompletePage extends Component {
     });
   };
 
-  handleModalClearClick() {
+  handleModalClearClick = () => {
     this.setState({
       modal: false
     });
@@ -301,16 +287,17 @@ class AutocompletePage extends Component {
   logValue = value => {
     console.log(value);
   };
+
   render() {
     const smallStyle = { fontSize: "0.8rem" };
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Autocomplete"
           href="https://mdbootstrap.com/docs/react/forms/autocomplete/"
         />
         <section style={{ paddingLeft: 200, paddingRight: 200 }}>
-          <Autocomplete
+          <MDBAutocomplete
             data={states}
             label="Choose your favorite state"
             icon="heart"
@@ -321,16 +308,16 @@ class AutocompletePage extends Component {
             getValue={this.logValue}
           />
         </section>
-        <Row>
-          <Col md="9" lg="7" xl="5" className="mx-auto mt-3">
-            <Card>
-              <CardBody className="mx-4">
+        <MDBRow>
+          <MDBCol md="9" lg="7" xl="5" className="mx-auto mt-3">
+            <MDBCard>
+              <MDBCardBody className="mx-4">
                 <div className="text-center">
                   <h3 className="dark-grey-text mb-5">
                     <strong>Sign in</strong>
                   </h3>
                 </div>
-                <Input
+                <MDBInput
                   label="Your email"
                   group
                   type="email"
@@ -338,126 +325,126 @@ class AutocompletePage extends Component {
                   error="wrong"
                   success="right"
                 />
-                <Input
+                <MDBInput
                   label="Your password"
                   group
                   type="password"
                   validate
                   containerClass="mb-0"
                 />
-                <Autocomplete
+                <MDBAutocomplete
                   label="Your country"
                   clear
                   data={countries}
                   clearClass="grey-text"
                 />
                 <div className="text-center pt-3 mb-3">
-                  <Button
+                  <MDBBtn
                     type="button"
                     gradient="blue"
                     rounded
                     className="btn-block z-depth-1a"
                   >
                     Sign in
-                  </Button>
+                  </MDBBtn>
                 </div>
                 <p
                   className="dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"
                   style={smallStyle}
                 >
-                  {" "}
+
                   or Sign up with:
                 </p>
                 <div className="row my-3 d-flex justify-content-center">
-                  <Button
+                  <MDBBtn
                     type="button"
                     color="white"
                     rounded
                     className="mr-md-3 z-depth-1a"
                   >
-                    <Fa icon="facebook" className="blue-text text-center" />
-                  </Button>
-                  <Button
+                    <MDBIcon fab icon="facebook" className="blue-text" />
+                  </MDBBtn>
+                  <MDBBtn
                     type="button"
                     color="white"
                     rounded
                     className="mr-md-3 z-depth-1a"
                   >
-                    <Fa icon="twitter" className="blue-text" />
-                  </Button>
-                  <Button
+                    <MDBIcon fab icon="twitter" className="blue-text" />
+                  </MDBBtn>
+                  <MDBBtn
                     type="button"
                     color="white"
                     rounded
                     className="z-depth-1a"
                   >
-                    <Fa icon="google-plus" className="blue-text" />
-                  </Button>
+                    <MDBIcon fab icon="google-plus" className="blue-text" />
+                  </MDBBtn>
                 </div>
-              </CardBody>
-              <ModalFooter className="mx-5 pt-3 mb-1">
+              </MDBCardBody>
+              <MDBModalFooter className="mx-5 pt-3 mb-1">
                 <p
                   className="grey-text d-flex justify-content-end"
                   style={smallStyle}
                 >
-                  Already a member?{" "}
+                  Already a member?
                   <a href="#!" className="blue-text ml-1">
-                    {" "}
+
                     Sign In
                   </a>
                 </p>
-              </ModalFooter>
-            </Card>
-          </Col>
-        </Row>
+              </MDBModalFooter>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
 
         <div className="text-center mt-3">
-          <Button onClick={this.toggle} rounded className="mx-auto">
+          <MDBBtn onClick={this.toggle} rounded className="mx-auto">
             launch modal contact
-          </Button>
-          <Modal
+          </MDBBtn>
+          <MDBModal
             isOpen={this.state.modal}
             toggle={this.toggle}
             size="md"
             cascading
           >
-            <ModalHeader
+            <MDBModalHeader
               titleClass="d-inline title"
               className="text-center light-blue darken-3 white-text"
             >
-              <Fa icon="pencil" />
+              <MDBIcon icon="pencil" />
               Contact From
-              <Fa
+              <MDBIcon
                 icon="close"
                 className="float-right"
-                onClick={this.handleModalClearClick.bind(this)}
+                onClick={this.handleModalClearClick}
               />
-            </ModalHeader>
-            <ModalBody>
-              <Input label="Your name"  />
-              <Input label="Your email"  iconClass="dark-grey" />
-              <Autocomplete label="Subject"  data={subjects} clear />
-              <Input
+            </MDBModalHeader>
+            <MDBModalBody>
+              <MDBInput label="Your name"  />
+              <MDBInput label="Your email"  iconClass="dark-grey" />
+              <MDBAutocomplete label="Subject"  data={subjects} clear />
+              <MDBInput
                 label="Your message"
                 type="textarea"
                 rows="2"
-                icon="pencil"
+                icon="pencil-alt"
                 iconClass="dark-grey"
               />
               <div className="text-center mt-1-half">
-                <Button
+                <MDBBtn
                   color="info"
                   className="mb-2"
                   onClick={this.handleModalClearClick.bind(this)}
                 >
                   send
-                  <Fa icon="send" className="ml-1" />
-                </Button>
+                  <MDBIcon icon="send" className="ml-1" />
+                </MDBBtn>
               </div>
-            </ModalBody>
-          </Modal>
+            </MDBModalBody>
+          </MDBModal>
         </div>
-      </Container>
+      </MDBContainer>
     );
   }
 }
