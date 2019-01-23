@@ -14,6 +14,7 @@ class DataTable extends Component {
       activePage: 0,
       columns: props.data.columns || [],
       entries: props.entries,
+      ExportToCsvBtn: null,
       filteredRows: props.data.rows || [],
       pages: [],
       rows: props.data.rows || [],
@@ -36,6 +37,12 @@ class DataTable extends Component {
 
     this.state.order.length &&
       this.handleSort(this.state.order[0], this.state.order[1]);
+
+    if (this.props.exportToCSV) {
+      import('./pro/ExportToCSV')
+        .then(module => this.setState({ ExportToCsvBtn: module.default }))
+        .catch(err => console.error("Export to CSV is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/"));
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -69,11 +76,11 @@ class DataTable extends Component {
           rows: json.rows
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   };
 
   paginateRowsInitialy = () => {
-    // findout how many pages there are need to be, then slice rows into pages
+    // findout how many pages has to be there, then slice rows into pages
     const pagesAmount = Math.ceil(this.state.rows.length / this.state.entries);
     for (let i = 1; i <= pagesAmount; i++) {
       const pageEndIndex = i * this.state.entries;
@@ -94,7 +101,7 @@ class DataTable extends Component {
   };
 
   handleSort = (field, sort) => {
-    if(sort !== "disabled") {
+    if (sort !== "disabled") {
       this.setState(
         prevState => {
           // asc by default
@@ -149,7 +156,7 @@ class DataTable extends Component {
   };
 
   paginateRows = () => {
-    // findout how many pages there are need to be, then slice rows into pages
+    // findout how many pages has to be there, then slice rows into pages
     const pagesAmount = Math.ceil(
       this.state.filteredRows.length / this.state.entries
     );
@@ -167,7 +174,7 @@ class DataTable extends Component {
         }
         prevState.activePage =
           prevState.activePage < prevState.pages.length ||
-          prevState.activePage === 0
+            prevState.activePage === 0
             ? prevState.activePage
             : prevState.pages.length - 1;
       } else {
@@ -230,23 +237,13 @@ class DataTable extends Component {
     const {
       columns,
       entries,
+      ExportToCsvBtn,
       filteredRows,
       pages,
       activePage,
       search,
       translateScrollHead
     } = this.state;
-
-    let ExportToCsvBtn;
-    if (exportToCSV) {
-      try {
-        ExportToCsvBtn = require("./pro/ExportToCSV").default;
-      } catch (err) {
-        console.log(
-          "Export to CSV is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/"
-        );
-      }
-    }
 
     return (
       <div className="dataTables_wrapper dt-bootstrap4">
@@ -347,13 +344,15 @@ class DataTable extends Component {
             />
           </div>
         )}
-        {exportToCSV && (
-          <div className="row justify-content-end">
-            <ExportToCsvBtn columns={columns} data={pages} color="primary">
-              Download CSV
-            </ExportToCsvBtn>
-          </div>
-        )}
+        {
+          ExportToCsvBtn && (
+            <div className="row justify-content-end">
+              <ExportToCsvBtn columns={columns} data={pages} color="primary">
+                Download CSV
+              </ExportToCsvBtn>
+            </div>
+          )
+        }
       </div>
     );
   }
