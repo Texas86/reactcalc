@@ -31,11 +31,11 @@ export default [
     plugins,
     output: [
       {
-        file: pkg.main,
+        dir: './dist',
         format: 'cjs',
       },
       {
-        file: pkg.module,
+        dir: './dist',
         format: 'es',
       }
     ]
