@@ -15,16 +15,17 @@ class DropdownMenu extends Component {
   }
 
   componentDidMount() {
-    if (this.props.animated) {
-      import("./pro/DropdownMenuProComponent")
-        .then(module => this.setState({ MenuModule: module.default }))
-        .catch(err => console.error("Animated Dropdown menu is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/"));
+    if(this.props.animated) {
+      this.importMenuModule('./pro/DropdownMenuProComponent');
     }
     else {
-      import("./DropdownMenuComponent")
-        .then(module => this.setState({ MenuModule: module.default }))
-        .catch(err => console.error(err));
+      this.importMenuModule('./DropdownMenuComponent');
     }
+  }
+
+  importMenuModule = (url) => {
+    import(`${url}`).then(module => this.setState({ MenuModule: module.default }))
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -66,7 +67,7 @@ class DropdownMenu extends Component {
       <React.Fragment>
         {
           MenuModule &&
-          (<MenuModule
+          <MenuModule
             isOpen={this.context.isOpen}
             d_tag={Tag}
             d_tabIndex="-1"
@@ -77,7 +78,7 @@ class DropdownMenu extends Component {
             d_key="dropDownMenu"
           >
             {children}
-          </MenuModule>)
+          </MenuModule>
         }
       </React.Fragment>
     );
