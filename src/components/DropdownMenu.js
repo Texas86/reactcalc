@@ -1,16 +1,35 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Popper } from 'react-popper';
-import './DropdownMenu.css';
-import DropdownMenuComponent from './pro/DropdownMenuProComponent';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { Popper } from "react-popper";
+import "./DropdownMenu.css";
 
 const noFlipModifier = { flip: { enabled: false } };
 
 class DropdownMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      MenuModule: null
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.animated) {
+      import("./pro/DropdownMenuProComponent")
+        .then(module => this.setState({ MenuModule: module.default }))
+        .catch(err => console.error("Animated Dropdown menu is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/"));
+    }
+    else {
+      import("./DropdownMenuComponent")
+        .then(module => this.setState({ MenuModule: module.default }))
+        .catch(err => console.error(err));
+    }
+  }
+
   render() {
     const {
-      basic,
+      animated,
       className,
       right,
       children,
@@ -20,13 +39,14 @@ class DropdownMenu extends Component {
       ...attrs
     } = this.props;
 
+    const { MenuModule } = this.state;
+
     const classes = classNames(
-      'dropdown-menu',
+      "dropdown-menu",
       color && `dropdown-${color}`,
       {
-        'dropdown-menu-right': right,
-        show: this.context.isOpen,
-        basic: basic
+        "dropdown-menu-right": right,
+        show: this.context.isOpen
       },
       className
     );
@@ -35,33 +55,38 @@ class DropdownMenu extends Component {
 
     if (this.context.isOpen) {
       Tag = Popper;
-      const position1 = this.context.dropup ? 'top' : 'bottom';
-      const position2 = right ? 'end' : 'start';
+      const position1 = this.context.dropup ? "top" : "bottom";
+      const position2 = right ? "end" : "start";
       attrs.placement = `${position1}-${position2}`;
       attrs.component = tag;
       attrs.modifiers = !flip ? noFlipModifier : undefined;
     }
 
     return (
-      <DropdownMenuComponent
-        isOpen={this.context.isOpen}
-        d_tag={Tag}
-        d_tabIndex="-1"
-        d_role="menu"
-        d_attributes={attrs}
-        d_aria={!this.context.isOpen}
-        d_classes={classes}
-        d_key="dropDownMenu"
-      >
-        {children}
-      </DropdownMenuComponent>
+      <React.Fragment>
+        {
+          MenuModule &&
+          (<MenuModule
+            isOpen={this.context.isOpen}
+            d_tag={Tag}
+            d_tabIndex="-1"
+            d_role="menu"
+            d_attributes={attrs}
+            d_aria={!this.context.isOpen}
+            d_classes={classes}
+            d_key="dropDownMenu"
+          >
+            {children}
+          </MenuModule>)
+        }
+      </React.Fragment>
     );
   }
 }
 
 DropdownMenu.propTypes = {
+  animated: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  basic: PropTypes.bool,
   className: PropTypes.string,
   flip: PropTypes.bool,
   right: PropTypes.bool,
@@ -69,11 +94,11 @@ DropdownMenu.propTypes = {
 };
 
 DropdownMenu.defaultProps = {
-  basic: false,
-  className: '',
+  animated: false,
+  className: "",
   flip: false,
   right: false,
-  tag: 'div',
+  tag: "div",
   color: false
 };
 
@@ -81,17 +106,7 @@ DropdownMenu.contextTypes = {
   isOpen: PropTypes.bool.isRequired,
   dropup: PropTypes.bool.isRequired,
   color: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'primary',
-      'default',
-      'secondary',
-      'success',
-      'dark',
-      'danger',
-      'info',
-      'warning',
-      'ins'
-    ]),
+    PropTypes.oneOf(['primary', 'default', "secondary", "success", "dark", "danger", "info", "warning", "ins"]),
     PropTypes.bool
   ])
 };

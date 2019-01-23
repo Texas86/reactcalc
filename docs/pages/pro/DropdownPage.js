@@ -10,12 +10,12 @@ const DropdownPage = () => {
         href="https://mdbootstrap.com/docs/react/components/dropdowns/"
       />
       <div className="container">
-      <h2>Basic example</h2>
+      <h2>Material animated example</h2>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu basic>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -26,7 +26,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="default">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="default" basic>
+          <MDBDropdownMenu color="default" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -38,7 +38,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="secondary">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="secondary" basic>
+          <MDBDropdownMenu color="secondary" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -50,7 +50,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="success">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="success" basic>
+          <MDBDropdownMenu color="success" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -62,7 +62,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="dark">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="dark" basic>
+          <MDBDropdownMenu color="dark" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -74,7 +74,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="danger">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="danger" basic>
+          <MDBDropdownMenu color="danger" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -86,7 +86,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="info">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="info" basic>
+          <MDBDropdownMenu color="info" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -98,7 +98,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="warning">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="warning" basic>
+          <MDBDropdownMenu color="warning" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -110,7 +110,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="ins">
             Dropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu color="ins" basic>
+          <MDBDropdownMenu color="ins" animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -122,7 +122,7 @@ const DropdownPage = () => {
         <h2>Sizing</h2>
         <MDBDropdown size="lg">
           <MDBDropdownToggle caret>Large Button</MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -134,7 +134,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             Small Button
           </MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -148,7 +148,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             Dropup
           </MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -162,7 +162,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             This dropdown&apos;s menu is right-aligned
           </MDBDropdownToggle>
-          <MDBDropdownMenu right>
+          <MDBDropdownMenu animated right>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -174,7 +174,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem header>MDBDropdown header</MDBDropdownItem>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
@@ -187,7 +187,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
             <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -201,7 +201,7 @@ const DropdownPage = () => {
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
           </MDBDropdownToggle>
-          <MDBDropdownMenu>
+          <MDBDropdownMenu animated>
             <MDBDropdownItem>Regular link</MDBDropdownItem>
             <MDBDropdownItem disabled href="#">
               Disabled link
