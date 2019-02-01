@@ -12,12 +12,12 @@ var classNames = _interopDefault(require('classnames'));
 var reactTransitionGroup = require('react-transition-group');
 var ReactDOM = require('react-dom');
 var ReactDOM__default = _interopDefault(ReactDOM);
-var Autosuggest = _interopDefault(require('react-autosuggest'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var reactRouterDom = require('react-router-dom');
 var outy = _interopDefault(require('outy'));
 var reactToastify = require('react-toastify');
+var Autosuggest = _interopDefault(require('react-autosuggest'));
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
@@ -3631,145 +3631,187 @@ exports.MDBSelectInput.defaultProps = {
 };
 var SelectInput = exports.MDBSelectInput = selectContextHOC(exports.MDBSelectInput);
 
-var theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
+var css$5 = ".fadeElement {\n  -webkit-transition: 0.5s;\n  -moz-transition: 0.5s;\n  -o-transition: 0.5s;\n  transition: 0.5s;\n  display: block;\n  width: 100%;\n  top: 0;\n  opacity: 0;\n  transform-origin:top;\n  transform:scaleY(0.7);\n  visibility: hidden;\n  pointer-events: none;\n}\n.fadeElement.fadeIn {\n  transform:scaleY(1);\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n}\n";
+styleInject(css$5);
 
-var Autocomplete =
+var Options =
 /*#__PURE__*/
-function (_Component) {
-  _inherits(Autocomplete, _Component);
+function (_React$Component) {
+  _inherits(Options, _React$Component);
 
-  function Autocomplete(props) {
+  function Options(props) {
     var _this;
 
-    _classCallCheck(this, Autocomplete);
+    _classCallCheck(this, Options);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Options).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsFetchRequested", function (_ref) {
-      var value = _ref.value;
-
-      if (_this.props.search) {
-        return;
-      }
-
-      _this.setState({
-        suggestions: _this.getSuggestions(value)
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestions", function (value) {
-      var inputValue = value.toLowerCase();
-      var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
-        return data.toLowerCase().includes(inputValue);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestionValue", function (suggestion) {
-      if (_this.props.getValue) {
-        _this.props.getValue(suggestion);
-      }
-
-      return suggestion;
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
-      return React__default.createElement("div", null, suggestion);
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
-      var newValue = _ref2.newValue;
-
-      _this.setState({
-        value: newValue
-      });
-
-      if (_this.props.search) {
-        _this.props.search(newValue, ReactDOM__default.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsClearRequested", function () {
-      _this.setState({
-        suggestions: []
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (value) {
+      _this.state.options.forEach(function (option) {
+        if (!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
+          option.style.display = 'none';
+        } else {
+          option.style.display = 'block';
+        }
       });
     });
 
     _this.state = {
-      value: "",
-      suggestions: [],
-      isTouched: false
+      options: [],
+      searchValue: ""
     };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.optionsRef = React__default.createRef();
     return _this;
   }
 
-  _createClass(Autocomplete, [{
-    key: "onClick",
-    value: function onClick(ev) {
-      this.setState({
-        isTouched: true
-      });
-    }
-  }, {
-    key: "blurCallback",
-    value: function blurCallback(ev) {
-      this.setState({
-        isTouched: false
-      });
-    }
-  }, {
-    key: "handleClear",
-    value: function handleClear() {
-      this.setState({
-        value: ""
-      });
-    }
-  }, {
-    key: "triggerFocus",
-    value: function triggerFocus() {
-      var input = document.getElementById(this.props.id);
-      input.focus();
+  _createClass(Options, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.props.search) {
+        var options = Array.from(this.optionsRef.current.children).filter(function (child) {
+          return child.tagName === 'LI';
+        });
+        this.setState({
+          options: options
+        });
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      var _this$state = this.state,
-          value = _this$state.value,
-          suggestions = _this$state.suggestions;
-
       var _this$props = this.props,
           className = _this$props.className,
-          clear = _this$props.clear,
-          clearClass = _this$props.clearClass,
-          data = _this$props.data,
+          children = _this$props.children,
+          search = _this$props.search,
+          searchLabel = _this$props.searchLabel,
+          searchId = _this$props.searchId,
+          attributes = _objectWithoutProperties(_this$props, ["className", "children", "search", "searchLabel", "searchId"]);
+
+      var classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement', className);
+      return React__default.createElement("ul", _extends({}, attributes, {
+        className: classes,
+        ref: this.optionsRef
+      }), search && React__default.createElement("div", {
+        className: "mx-2"
+      }, React__default.createElement(Input, {
+        label: searchLabel,
+        id: searchId,
+        getValue: this.search,
+        "data-search": "true"
+      })), children);
+    }
+  }]);
+
+  return Options;
+}(React__default.Component);
+
+Options.propTypes = {
+  children: PropTypes__default.node,
+  className: PropTypes__default.string,
+  search: PropTypes__default.bool,
+  searchLabel: PropTypes__default.string,
+  searchId: PropTypes__default.string
+};
+Options.defaultProps = {
+  className: '',
+  search: false,
+  searchLabel: 'Search',
+  searchId: 'selectSearchInput'
+};
+
+exports.MDBSelectOption =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Option, _React$Component);
+
+  function Option(props) {
+    var _this;
+
+    _classCallCheck(this, Option);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Option).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOption", function () {
+      if (!_this.props.disabled) {
+        var selectedOption = _this.optionRef.current;
+        var value = [];
+        var text;
+        var options = selectedOption.parentNode.children;
+
+        if (_this.state.multiple) {
+          text = [];
+
+          if (selectedOption.classList.contains("active")) {
+            selectedOption.classList.remove("active");
+
+            _this.setState({
+              checked: false
+            });
+          } else {
+            selectedOption.classList.add("active");
+
+            _this.setState({
+              checked: true
+            });
+          } // iterate throught child nodes options and add checked to arr
+
+
+          Array.from(options).forEach(function (option) {
+            if (option.classList.contains("active")) {
+              text.push(option.textContent);
+              option.getElementsByTagName("input")[0].value ? value.push(option.getElementsByTagName("input")[0].value) : value.push(option.textContent);
+            }
+          });
+
+          if (text.length === 0) {
+            text = "Choose your option";
+          }
+        } else {
+          Array.from(selectedOption.children).forEach(function (child) {
+            if (child.nodeName === "SPAN") {
+              text = child.textContent;
+              _this.props.value ? value.push(_this.props.value) : value.push(text);
+            }
+          });
+          Array.from(options).forEach(function (option) {
+            return option.classList.remove("active");
+          });
+          selectedOption.classList.add("active");
+        }
+
+        _this.props.context.triggerOptionChange(value, text);
+      }
+    });
+
+    _this.state = {
+      multiple: _this.props.context.multiple || false,
+      checked: _this.props.selected || false
+    };
+    _this.optionRef = React__default.createRef();
+    return _this;
+  }
+
+  _createClass(Option, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (!this.state.multiple) {
+        this.state.checked && this.optionRef.current.click();
+      } else {
+        if (!this.props.disabled) {
+          !this.state.checked && this.optionRef.current.classList.add("active");
+          this.selectOption();
+        }
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          children = _this$props.children,
           disabled = _this$props.disabled,
-          getValue = _this$props.getValue,
-          id = _this$props.id,
-          label = _this$props.label,
-          labelClass = _this$props.labelClass,
           icon = _this$props.icon,
+<<<<<<< HEAD
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
@@ -4093,6 +4135,8 @@ function (_React$Component) {
           children = _this$props.children,
           disabled = _this$props.disabled,
           icon = _this$props.icon,
+=======
+>>>>>>> auto-build-test
           triggerOptionClick = _this$props.triggerOptionClick,
           value = _this$props.value,
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "icon", "triggerOptionClick", "value"]);
@@ -4527,7 +4571,7 @@ function (_Component) {
         }
       }, React__default.createElement("span", null, label[0]))), this.choosePagesGroup().map(function (page) {
         return React__default.createElement(PageItem, {
-          key: page[0].name + page.index,
+          key: Object.keys(page[0])[0] + page.index,
           active: page.index === activePage
         }, React__default.createElement(PageLink, {
           className: "page-link",
@@ -4666,8 +4710,6 @@ ExportToCSV.propTypes = {
   children: PropTypes__default.node,
   className: PropTypes__default.string
 };
-
-var ExportToCsvBtn = ExportToCSV; // PRO-END
 
 var DataTable =
 /*#__PURE__*/
@@ -4997,7 +5039,7 @@ function (_Component) {
         label: paginationLabel
       })), exportToCSV && React__default.createElement("div", {
         className: "row justify-content-end"
-      }, React__default.createElement(ExportToCsvBtn, {
+      }, React__default.createElement(ExportToCSV, {
         columns: columns,
         data: pages,
         color: "primary"
@@ -6013,6 +6055,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBackdropClick", function (e) {
+      if (!_this.props.backdrop) return;
+
       if (!_this.modalContent.contains(e.target)) {
         _this.props.toggle();
       }
@@ -7429,6 +7473,284 @@ Dropdown.childContextTypes = {
   dropup: PropTypes__default.bool.isRequired
 };
 
+var theme = {
+  container: "md-form",
+  containerOpen: "react-autosuggest__container--open",
+  input: "mdb-autocomplete form-control",
+  inputOpen: "react-autosuggest__input--open",
+  inputFocused: "react-autosuggest__input--focused",
+  suggestionsContainer: "react-autosuggest__suggestions-container",
+  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
+  suggestionsList: "mdb-autocomplete-wrap",
+  suggestion: "react-autosuggest__suggestion",
+  suggestionFirst: "react-autosuggest__suggestion--first",
+  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
+  sectionContainer: "react-autosuggest__section-container",
+  sectionContainerFirst: "react-autosuggest__section-container--first",
+  sectionTitle: "react-autosuggest__section-title"
+};
+
+var Autocomplete =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Autocomplete, _Component);
+
+  function Autocomplete(props) {
+    var _this;
+
+    _classCallCheck(this, Autocomplete);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsFetchRequested", function (_ref) {
+      var value = _ref.value;
+
+      if (_this.props.search) {
+        return;
+      }
+
+      _this.setState({
+        suggestions: _this.getSuggestions(value)
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestions", function (value) {
+      var inputValue = value.toLowerCase();
+      var inputLength = inputValue.length;
+      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
+        return data.toLowerCase().includes(inputValue);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestionValue", function (suggestion) {
+      if (_this.props.getValue) {
+        _this.props.getValue(suggestion);
+      }
+
+      return suggestion;
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
+      return React__default.createElement("div", null, suggestion);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
+      var newValue = _ref2.newValue;
+
+      _this.setState({
+        value: newValue
+      });
+
+      if (_this.props.search) {
+        _this.props.search(newValue, ReactDOM__default.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsClearRequested", function () {
+      _this.setState({
+        suggestions: []
+      });
+    });
+
+    _this.state = {
+      value: "",
+      suggestions: [],
+      isTouched: false
+    };
+    _this.onChange = _this.onChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Autocomplete, [{
+    key: "onClick",
+    value: function onClick(ev) {
+      this.setState({
+        isTouched: true
+      });
+    }
+  }, {
+    key: "blurCallback",
+    value: function blurCallback(ev) {
+      this.setState({
+        isTouched: false
+      });
+    }
+  }, {
+    key: "handleClear",
+    value: function handleClear() {
+      this.setState({
+        value: ""
+      });
+    }
+  }, {
+    key: "triggerFocus",
+    value: function triggerFocus() {
+      var input = document.getElementById(this.props.id);
+      input.focus();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          value = _this$state.value,
+          suggestions = _this$state.suggestions;
+
+      var _this$props = this.props,
+          className = _this$props.className,
+          clear = _this$props.clear,
+          clearClass = _this$props.clearClass,
+          data = _this$props.data,
+          disabled = _this$props.disabled,
+          getValue = _this$props.getValue,
+          id = _this$props.id,
+          label = _this$props.label,
+          labelClass = _this$props.labelClass,
+          icon = _this$props.icon,
+          iconBrand = _this$props.iconBrand,
+          iconClass = _this$props.iconClass,
+          iconLight = _this$props.iconLight,
+          iconRegular = _this$props.iconRegular,
+          iconSize = _this$props.iconSize,
+          placeholder = _this$props.placeholder,
+          search = _this$props.search,
+          attributes = _objectWithoutProperties(_this$props, ["className", "clear", "clearClass", "data", "disabled", "getValue", "id", "label", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "placeholder", "search"]);
+
+      if (disabled) {
+        attributes.disabled = true;
+      } // needed for rendering custom input
+
+
+      var inputProps = {
+        placeholder: placeholder,
+        value: value,
+        onChange: this.onChange,
+        onBlur: this.blurCallback,
+        onClick: this.onClick,
+        onFocus: this.onFocus,
+        id: this.props.id
+      }; // the main variable for classFixes
+
+      var isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched; // classFixes:
+
+      var labelClassFix = classNames(isNotEmpty && "active", disabled && "disabled", labelClass);
+      var iconClassFix = classNames("prefix", this.state.isTouched && "active", iconClass);
+      var clearClassFix = classNames(clearClass);
+
+      var isclearVisible = function isclearVisible() {
+        var hiddenOrNot = "hidden";
+
+        if (_this2.state.value) {
+          hiddenOrNot = "visible";
+        }
+
+        return hiddenOrNot;
+      };
+
+      var clearStyleFix = {
+        position: "absolute",
+        zIndex: 2,
+        top: ".85rem",
+        right: 0,
+        border: "none",
+        background: "0 0",
+        visibility: isclearVisible()
+      };
+
+      var renderInputComponent = function renderInputComponent(inputProps) {
+        return React__default.createElement("div", null, icon && React__default.createElement(Fa, {
+          icon: icon,
+          size: iconSize,
+          brand: iconBrand,
+          light: iconLight,
+          regular: iconRegular,
+          className: iconClassFix
+        }), React__default.createElement("input", _extends({
+          type: "text",
+          id: id,
+          className: "form-control"
+        }, inputProps, attributes, {
+          onFocus: function onFocus(ev, val) {
+            _this2.onClick();
+
+            inputProps.onFocus(ev, val);
+          }
+        })), React__default.createElement("label", {
+          htmlFor: id,
+          id: "label for ".concat(id),
+          onClick: _this2.triggerFocus,
+          className: labelClassFix
+        }, label), clear && React__default.createElement(Fa, {
+          icon: "close",
+          onClick: _this2.handleClear,
+          style: clearStyleFix,
+          className: clearClassFix
+        }));
+      };
+
+      return React__default.createElement(Autosuggest, _extends({
+        suggestions: suggestions,
+        onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
+        onSuggestionsClearRequested: this.onSuggestionsClearRequested,
+        getSuggestions: this.getSuggestions,
+        getSuggestionValue: this.getSuggestionValue,
+        onSuggestionSelected: this.blurCallback,
+        renderSuggestion: this.renderSuggestion,
+        inputProps: inputProps,
+        onChange: this.onChange,
+        theme: theme,
+        renderInputComponent: renderInputComponent,
+        focusInputOnSuggestionClick: false
+      }, attributes));
+    }
+  }]);
+
+  return Autocomplete;
+}(React.Component);
+
+Autocomplete.propTypes = {
+  className: PropTypes__default.string,
+  clear: PropTypes__default.bool,
+  clearClass: PropTypes__default.string,
+  data: PropTypes__default.arrayOf(PropTypes__default.string),
+  disabled: PropTypes__default.bool,
+  getValue: PropTypes__default.func,
+  id: PropTypes__default.string,
+  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
+  labelClass: PropTypes__default.string,
+  icon: PropTypes__default.string,
+  iconBrand: PropTypes__default.bool,
+  iconClass: PropTypes__default.string,
+  iconLight: PropTypes__default.bool,
+  iconRegular: PropTypes__default.bool,
+  iconSize: PropTypes__default.string,
+  placeholder: PropTypes__default.string,
+  search: PropTypes__default.func
+};
+Autocomplete.defaultProps = {
+  className: "",
+  clear: false,
+  clearClass: "",
+  data: [],
+  disabled: false,
+  getValue: function getValue() {},
+  id: "",
+  label: "",
+  labelClass: "",
+  icon: "",
+  iconBrand: false,
+  iconClass: "",
+  iconLight: false,
+  iconRegular: false,
+  iconSize: "",
+  placeholder: ""
+};
+
 var Avatar =
 /*#__PURE__*/
 function (_Component) {
@@ -8620,8 +8942,8 @@ InputSwitch.propTypes = {
 InputSwitch.defaultProps = {
   checked: false,
   getValue: false,
-  labelLeft: "On",
-  labelRight: "Off"
+  labelLeft: "Off",
+  labelRight: "On"
 };
 
 var css$c = ".ReactModal__Overlay {\r\n    z-index: 2000 !important;\r\n}";
