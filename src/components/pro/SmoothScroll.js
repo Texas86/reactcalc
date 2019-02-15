@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Waves from "./Waves";
-import { NavLink as Link } from "react-router-dom";
+import Waves from "./../Waves";
+import { Link } from "react-scroll";
 
-class NavLink extends Component {
+class SmoothScroll extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +32,10 @@ class NavLink extends Component {
       disabled,
       active,
       to,
+      spy,
+      smooth,
+      offset,
+      duration,
       ...attributes
     } = this.props;
 
@@ -41,12 +45,17 @@ class NavLink extends Component {
       active && "active",
       className
     );
+
     return (
       <Link
         className={classes}
         onMouseUp={this.handleClick}
         onTouchStart={this.handleClick}
         to={to}
+        spy={spy}
+        smooth={smooth}
+        offset={offset}
+        duration={duration}
         {...attributes}
       >
         {children}
@@ -60,19 +69,27 @@ class NavLink extends Component {
   }
 }
 
-NavLink.propTypes = {
+SmoothScroll.propTypes = {
+  to: PropTypes.string.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  to: PropTypes.string,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  spy: PropTypes.bool,
+  smooth: PropTypes.bool,
+  offset: PropTypes.number,
+  duration: PropTypes.number
 };
 
-NavLink.defaultProps = {
+SmoothScroll.defaultProps = {
   active: false,
   className: "",
-  disabled: false
+  disabled: false,
+  spy: true,
+  smooth: true,
+  offset: -70,
+  duration: 500
 }
 
-export default NavLink;
-export { NavLink as MDBNavLink };
+export default SmoothScroll;
+export { SmoothScroll as MDBSmoothScroll };

@@ -18,6 +18,7 @@ const AdvancedNavPage = () => {
               <MenuLink to="/advanced/charts" title="Charts" />
               <MenuLink to="/advanced/collapse" title="Collapse" />
               <MenuLink to="/advanced/popover" title="Popover" />
+              <MenuLink to="/advanced/scrollbar" title="ScrollBar" />
               <MenuLink to="/advanced/tooltips" title="Tooltips" />
               <MenuLink to="/advanced/videocarousel" title="Video Carousel" />
               {/* PRO-START */}
@@ -27,6 +28,7 @@ const AdvancedNavPage = () => {
               <MenuLink to="/advanced/pro/lightbox" title="Lightbox" />
               <MenuLink to="/advanced/pro/multicarousel" title="Multi-item Carousel" />
               <MenuLink to="/advanced/pro/scrollbar" title="ScrollBar" />
+              <MenuLink to="/advanced/pro/smoothscroll" title="SmoothScroll" />
               <MenuLink to="/advanced/pro/sticky" title="Sticky Content" />
               <MenuLink to="/advanced/pro/thumbnailscarousel" title="Thumbnails Carousel" />
               {/* PRO-END */}
