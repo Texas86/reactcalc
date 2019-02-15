@@ -1,4 +1,4 @@
-[![React-Bootstrap-with-Material-Design](https://mdbootstrap.com/img/Marketing/free/main/react/mdb-react-free.jpg)](https://mdbootstrap.com/docs/react/)
+[![React-Bootstrap-with-Material-Design](https://mdbootstrap.com/wp-content/uploads/2018/11/mdb-react-free.jpg)](https://mdbootstrap.com/docs/react/)
 
 # React Bootstrap with Material Design
 
@@ -18,14 +18,19 @@ All fully responsive. All compatible with different browsers.
 
 # Live Preview
 
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2888%29.jpg)](https://mdbootstrap.com/angular/)
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2876%29.jpg)](https://mdbootstrap.com/angular/)
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2873%29.jpg)](https://mdbootstrap.com/angular/)
+[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2888%29.jpg)](https://mdbootstrap.com/docs/react/)
+[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2876%29.jpg)](https://mdbootstrap.com/docs/react/)
+[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2873%29.jpg)](https://mdbootstrap.com/docs/react/)
 
 # Version:
 
+<<<<<<< HEAD
 - MDBReact 4.8.6
 - React 16.6.0
+=======
+- MDBReact 4.10.0
+- React 16.7.0
+>>>>>>> 7a8870cf767f6fcff6c2d8ef34d86c1076727397
 
 # Quick start
 
@@ -58,7 +63,7 @@ Now you can navigate to our documentation (http://mdbootstrap.com/docs/react/), 
 - Import style files into the src/index.js before the App.js file:
 
 ```javascript
-import "font-awesome/css/font-awesome.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 ```

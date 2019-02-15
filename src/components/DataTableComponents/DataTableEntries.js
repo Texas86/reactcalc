@@ -1,11 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-let DataTableSelect;
-try {
-  DataTableSelect = require("../pro/DataTableSelect").default;
-} catch (err) {
-  DataTableSelect = require("./DataTableSelect").default;
-}
+import React from 'react';
+import PropTypes from 'prop-types';
+// PRO-START
+import DataTableSelect from '../pro/DataTableSelect';
+/*
+// PRO-END
+import DataTableSelect from './DataTableSelect';
+// PRO-START
+*/
+// PRO-END
 
 const DataTableEntries = props => {
   const { handleEntriesChange, entries, entriesArr, paging, label } = props;
@@ -29,7 +31,11 @@ DataTableEntries.propTypes = {
   entries: PropTypes.number.isRequired,
   entriesArr: PropTypes.arrayOf(PropTypes.number).isRequired,
   paging: PropTypes.bool.isRequired,
-  label: PropTypes.string
+  label: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ]).isRequired
 };
 
 export default DataTableEntries;
